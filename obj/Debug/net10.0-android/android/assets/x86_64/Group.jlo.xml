@@ -1,0 +1,15 @@
+<api>
+  <jcw-types>
+    <type name="MainActivity" package="crc641d5c0bf5307b2d8f" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiAppCompatActivity" partial_assembly_qualified_name="Group.MainActivity, Group">
+      <constructors>
+        <constructor name="MainActivity" method="n_.ctor:()V:" jni_signature="()V" managed_parameters="" retval="void" is_dynamically_registered="True" />
+        <constructor name="MainActivity" method="n_.ctor:(I)V:" jni_signature="(I)V" managed_parameters="System.Int32, System.Private.CoreLib" params="int p0" retval="void" is_dynamically_registered="True" super_call="p0" activate_call="p0" />
+      </constructors>
+    </type>
+    <type name="MainApplication" package="crc641d5c0bf5307b2d8f" application_java_class="android.app.Application" mono_runtime_initialization="mono.MonoPackageManager.LoadApplication (context);" extends_type="crc6488302ad6e9e4df1a.MauiApplication" is_application="True" partial_assembly_qualified_name="Group.MainApplication, Group" application_constructor="MainApplication" />
+  </jcw-types>
+  <acw-types partial-assembly-name="Group" module-name="Group.dll">
+    <type assembly-qualified-name="Group.MainActivity, Group, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="group.MainActivity" java-key="crc641d5c0bf5307b2d8f.MainActivity" managed-key="Group.MainActivity" partial-assembly-qualified-name="Group.MainActivity, Group" />
+    <type assembly-qualified-name="Group.MainApplication, Group, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" compat-jni-name="group.MainApplication" java-key="crc641d5c0bf5307b2d8f.MainApplication" managed-key="Group.MainApplication" partial-assembly-qualified-name="Group.MainApplication, Group" />
+  </acw-types>
+</api>

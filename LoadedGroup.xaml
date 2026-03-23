@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Group.Models"
+             x:Class="Group.LoadedGroup"
+             Title="LoadedGroup">
+    <ScrollView >
+
+        <StackLayout>
+            <CollectionView ItemsSource="{Binding Groups}">
+        
+        
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="local:NewGroupModel">
+                <StackLayout>
+                           
+                            <Label Text="{Binding NikAvtor}" TextColor="Red"  FontSize="30"/>
+                </StackLayout>
+                  
+              
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+            <Label Text="В" />
+        </StackLayout>
+        </ScrollView>
+</ContentPage>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Group.SearhPage"
+                     xmlns:local="clr-namespace:Group.Models"
+             Title="SearhPage">
+    <ScrollView>
+        <StackLayout>
+            
+        
+        <Entry Placeholder="Ведите айди группы" Text="{Binding GroupId}"></Entry>
+        <CollectionView ItemsSource="{Binding Groups}">
+
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="local:NewGroupModel">
+                    <StackLayout>
+                            <Border BackgroundColor="Black">
+                                <StackLayout>
+                                    <Label Text="{Binding NikAvtor} " TextColor="White" ></Label>
+                                    <Button Text="Подать заявку" Command="{Binding AddBidCommand}"  ></Button>
+                                </StackLayout>
+                                
+                            </Border>
+                    </StackLayout>
+
+
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        
+        </CollectionView>
+            <Button Text="Найти группу" Command="{Binding SearchGroupCommand}" ></Button>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
