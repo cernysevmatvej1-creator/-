@@ -521,3 +521,4 @@ C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\pri.resfile
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt.intermediate
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
+C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\Group.sourcelink.json

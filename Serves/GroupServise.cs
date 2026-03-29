@@ -19,10 +19,54 @@ namespace Group.Serves
             _groupRepotisiory = ifakeRepotisory;
             _userRepotisory = userRepotisory;
         }
+
+        public async  Task<Result> AddBid(string groupid,NewGroupModel newGroupModel)
+        {
+            try
+            {
+                var profilgroup = await _groupRepotisiory.LoadedGroup(_userRepotisory.GetUserId());
+                bool check = false;
+                foreach (var group in profilgroup.Data)
+                {
+                    if (group.Id == groupid)
+                    {
+                        check = true;
+                        break;
+                    }
+                }
+                if (!check)
+                {
+                     var loadedprofil = await _userRepotisory.LoadedUserProfil(_userRepotisory.GetUserId());
+                    if (loadedprofil.Success) {
+
+                        await _groupRepotisiory.AddGroup(newGroupModel, _userRepotisory.GetUserId());
+                        Bid bid = new Bid()
+                        {
+                         User = loadedprofil.Data
+                        };
+                        return await _groupRepotisiory.AddBid(groupid,bid);
+                    }
+                    return Result.Fail("Профиль пустой");
+              
+       
+                }
+                else
+                    return Result.Fail("Вы уже подали заявку");
+           
+            }
+            catch (Exception ex)
+            {
+                return Result.Fail(ex.Message);
+
+            }
+   
+        }
+
         public async Task<string> AddGroup(NewGroupModel model)
         {
             try
             {
+              
                 string check = Validitioin(model);
                 if (check == null)
                 {

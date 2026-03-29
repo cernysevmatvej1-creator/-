@@ -7,6 +7,7 @@ using Group.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TRAIN;
 
 namespace Group.ViewModel
 {
@@ -31,8 +32,8 @@ namespace Group.ViewModel
                 
             };
          
-            await _groupServise.AddGroup(model);
-
+           var check = await _groupServise.AddGroup(model);
+           await DialogHelper.ShowAlert("",check);
 
         }
     }

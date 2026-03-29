@@ -30,13 +30,11 @@ namespace Group.Serves
                     var respone =  await httpcliient.PostAsync("https://localhost:44388/api/AuthFirebase/auth-anonim", null);
                     var userData = await respone.Content.ReadFromJsonAsync<UserJons>();
                     _userRepotisory.SaveUser(userData);
-                     
-                    
                     return Result.Fail("Ошибка попробуйте еще раз");
 
                 }
               
-
+               
                 await _userRepotisory.SaveUserProfil(user, _userRepotisory.GetUserId());
                 return Result.Ok();
             }

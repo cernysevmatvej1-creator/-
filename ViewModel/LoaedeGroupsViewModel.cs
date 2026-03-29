@@ -28,6 +28,7 @@ namespace Group.ViewModel
         {
             _groupServies = userServies;
             _groups = new ObservableCollection<NewGroupModel>(); 
+
          
         }
 
@@ -38,13 +39,17 @@ namespace Group.ViewModel
 
                 var loadedgroup = await _groupServies.LoadedGroups();
                 Groups.Clear();
-                foreach (var group in loadedgroup.Data) 
-                { 
-                Groups.Add(group);
-                 
+                foreach (var group in loadedgroup.Data)
+                {
+                   
+                    Groups.Add(group);
+                    await DialogHelper.ShowAlert("csa",group.Bids.Count.ToString());
+               
+
                 }
-        
-            }
+
+            } 
+            
 
             catch (Exception ex)
             {

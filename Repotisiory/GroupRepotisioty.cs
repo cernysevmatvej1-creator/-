@@ -15,30 +15,28 @@ namespace Group.Repotisiory
         public async Task AddGroup(NewGroupModel newGroupModel,string getuserid)
         {
             var check = await base.Authorization();
-                        if(check)
-            await firebaseClient.Child("Group").Child(getuserid).PostAsync(newGroupModel);
+        if(check)
+            await firebaseClient.Child("Group").Child(getuserid).Child("MyGroup").PostAsync(newGroupModel);
         }
         public async Task PublicAddGroup(NewGroupModel newGroupModel)
         {
             var check = await base.Authorization();
             if(check)
-              await firebaseClient.Child("Group").Child(newGroupModel.Id).PostAsync(newGroupModel);
+              await firebaseClient.Child("Group").Child(newGroupModel.Id).Child("GroupProfil").PutAsync(newGroupModel);
         }
         public async Task<Result<List<NewGroupModel>>> LoadedGroup(string getuserid)
         {
             try
             {
                 await base.Authorization();
-                var listgroups = await firebaseClient.Child("Group").Child(getuserid).OnceAsync<NewGroupModel>();
+                var listgroups = await firebaseClient.Child("Group").Child(getuserid).Child("MyGroup").OnceAsync<NewGroupModel>();
                var  listgroup = new List<NewGroupModel>();
                 foreach (var group in listgroups) {
-                    listgroup.Add(new NewGroupModel
-                    {
-                        NikAvtor = group.Object.NikAvtor,
-                        Id = group.Object.Id,
-                        
-                    });
-                   
+
+                    var groups=   await SearchGroup(group.Object.Id);
+                    listgroup.Add(groups.Data);
+                    
+
                 }
                 if (listgroup == null)
                 {
@@ -60,34 +58,55 @@ namespace Group.Repotisiory
 
         public async Task<Result<NewGroupModel>> SearchGroup(string groupid)
         {
-            var check = await base.Authorization();
-            if (!check)
-                return Result<NewGroupModel>.Fail("Авторизация прошла успешно");
-            var serachgroupmodel = await firebaseClient.Child("Group").Child(groupid).OnceAsync<NewGroupModel>();
-            if (serachgroupmodel == null)
-                return Result<NewGroupModel>.Fail("Группа не найдена");
-            foreach (var i in serachgroupmodel)
+            try 
             {
-               
+                var check = await base.Authorization();
+                if (!check)
+                    return Result<NewGroupModel>.Fail("Авторизация прошла успешно");
+                var serachgroupmodel = await firebaseClient.Child("Group").Child(groupid).Child("GroupProfil").OnceSingleAsync<NewGroupModel>();
+                var serachgroupbids = await firebaseClient.Child("Group").Child(groupid).Child("Bids").OnceAsync<Bid>();
+                if (serachgroupmodel == null)
+                    return Result<NewGroupModel>.Fail("Группа не найдена");
+                foreach (var bid in serachgroupbids) {
+                    serachgroupmodel.Bids.Add(new Bid()
+                    {
+                        User = bid.Object.User,
+                    }) ;
+                }
+                await DialogHelper.ShowAlert("asdasd", serachgroupmodel.NikAvtor);
                 return Result<NewGroupModel>.Ok(new NewGroupModel()
                 {
-                    Id = i.Object.Id,
-                    NikAvtor = i.Object.NikAvtor
-                }
-                , "Все прошло успешно");
-
+                    Id = serachgroupmodel.Id,
+                    NikAvtor = serachgroupmodel.NikAvtor,
+                  
+                    Bids = serachgroupmodel.Bids,
+                    
+                });
 
             }
-            return Result<NewGroupModel>.Fail("Группа не найдена");
+            catch(Exception ex) 
+            {
+                return Result<NewGroupModel>.Fail(ex.Message);  
+            } 
+          
 
         }
 
-        public async  Task<Result> AddBid(string getuserid)
+        public async  Task<Result> AddBid(string getidgroup,Bid bid)
         {
-         var check =  await base.Authorization();
-            if (!check)
-                return Result.Fail("Ошибка авторизации");
-            
+            try
+            {
+                var check = await base.Authorization();
+                if (!check)
+                    return Result.Fail("Ошибка авторизации");
+                 await firebaseClient.Child("Group").Child(getidgroup).Child("Bids").PostAsync(bid);
+                return Result.Ok();
+            }
+            catch (Exception ex) {
+                return Result.Fail(ex.Message);
+            }
+         
+
 
         }
     }

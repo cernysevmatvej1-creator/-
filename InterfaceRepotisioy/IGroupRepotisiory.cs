@@ -12,7 +12,7 @@ namespace Group.InterfaceRepotisioy
         Task RemoveGroup(int id);
         Task PublicAddGroup(NewGroupModel newGroupModel);
         Task<Result<NewGroupModel>> SearchGroup(string groupid);
-        Task<Result> AddBid(string getuserid);
+        Task<Result> AddBid(string getuserid,Bid did);
      }
 }
   

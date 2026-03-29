@@ -1,4 +1,5 @@
 ﻿using Firebase.Database.Query;
+using Group.Error_correction_system;
 using Group.InterfaceRepotisioy;
 using Group.Models;
 using System;
@@ -37,12 +38,30 @@ namespace Group.Repotisiory
         public async Task SaveUserProfil(User user,string userid) 
         {
             await base.Authorization();
+            user.Id = userid;
             await firebaseClient.Child("Group").Child(userid).Child("Profil").PutAsync(user);
         }
+        
         public void DeleteUserId()
         {
             Preferences.Remove(_username);
             Preferences.Remove(_islogin);
+        }
+
+        public async  Task<Result<User>> LoadedUserProfil(string userid)
+        {
+            try
+            {
+                await base.Authorization();
+                var loadedprofil = await firebaseClient.Child("Group").Child(userid).Child("Profil").OnceSingleAsync<User>();
+                if (loadedprofil == null)
+                    return Result<User>.Fail("Профиль пустой");
+                return Result<User>.Ok(loadedprofil);
+            }
+            catch(Exception ex) 
+            {
+                return Result<User >.Fail(ex.Message); 
+            }
         }
     }
 }

@@ -4,24 +4,69 @@
              xmlns:local="clr-namespace:Group.Models"
              x:Class="Group.LoadedGroup"
              Title="LoadedGroup">
-    <ScrollView >
 
-        <StackLayout>
+    <ScrollView>
+        <StackLayout Spacing="10" Padding="10">
+
+            <!-- Простой вывод групп -->
             <CollectionView ItemsSource="{Binding Groups}">
-        
-        
-        <CollectionView.ItemTemplate>
-            <DataTemplate x:DataType="local:NewGroupModel">
-                <StackLayout>
-                           
-                            <Label Text="{Binding NikAvtor}" TextColor="Red"  FontSize="30"/>
-                </StackLayout>
-                  
-              
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
-            <Label Text="В" />
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:NewGroupModel">
+                        <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="0,5">
+                            <VerticalStackLayout Spacing="10">
+
+                                <!-- Информация о группе -->
+                                <Label Text="{Binding NikAvtor}" 
+                                       FontSize="24" 
+                                       FontAttributes="Bold"
+                                       TextColor="White"/>
+
+                                <!-- Количество заявок -->
+                                <Label Text="{Binding Bids.Count, StringFormat='Заявок: {0}'}" 
+                                       FontSize="14"
+                                       TextColor="Yellow"/>
+
+                                <!-- Отдельный ListView для заявок этой группы -->
+                                <Border Stroke="Gray" StrokeThickness="1" Padding="5">
+                                    <VerticalStackLayout>
+                                        <Label Text="Заявки на вступление:" 
+                                               FontSize="16"
+                                               TextColor="LightGray"/>
+
+                                        <CollectionView ItemsSource="{Binding Bids}" 
+                                                        HeightRequest="100">
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate x:DataType="local:Bid">
+                                                    <HorizontalStackLayout Spacing="10" Padding="5">
+                                                        <Label Text="•" TextColor="White"/>
+                                                        <Label Text="{Binding User.Name}" 
+                                                               TextColor="White"
+                                                               VerticalOptions="Center"/>
+                                                        <Button Text="Принять" 
+                                                                BackgroundColor="Green"
+                                                                WidthRequest="80"
+                                                                HeightRequest="30"/>
+                                                        <Button Text="Отклонить" 
+                                                                BackgroundColor="Red"
+                                                                WidthRequest="80"
+                                                                HeightRequest="30"/>
+                                                    </HorizontalStackLayout>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+
+                                            <CollectionView.EmptyView>
+                                                <Label Text="Нет заявок" 
+                                                       TextColor="Gray"
+                                                       HorizontalOptions="Center"/>
+                                            </CollectionView.EmptyView>
+                                        </CollectionView>
+                                    </VerticalStackLayout>
+                                </Border>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
-        </ScrollView>
+    </ScrollView>
 </ContentPage>
