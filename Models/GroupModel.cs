@@ -9,6 +9,8 @@ namespace Group.Models
         public string Id { get; set; }
         public string NikAvtor { get; set; }
         public List<Bid> Bids { get; set; } = new List<Bid>();
+        public  List<User> Users { get; set; } = new List<User>();
+        public List<Message> Messages { get; set; } = new List<Message>();
        
     }
 }

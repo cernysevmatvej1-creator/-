@@ -4,8 +4,51 @@
         <name>Group</name>
     </assembly>
     <members>
+        <member name="T:Group.ViewModel.ChatGroupViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Group.ViewModel.ChatGroupViewModel.Messags">
+            <inheritdoc cref="F:Group.ViewModel.ChatGroupViewModel._messags"/>
+        </member>
+        <member name="F:Group.ViewModel.ChatGroupViewModel.addMessageCommand">
+            <summary>The backing field for <see cref="P:Group.ViewModel.ChatGroupViewModel.AddMessageCommand"/>.</summary>
+        </member>
+        <member name="P:Group.ViewModel.ChatGroupViewModel.AddMessageCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Group.ViewModel.ChatGroupViewModel.AddMessage"/>.</summary>
+        </member>
+        <member name="T:Group.ViewModel.LoaedeGroupsViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Group.ViewModel.LoaedeGroupsViewModel.Groups">
+            <inheritdoc cref="F:Group.ViewModel.LoaedeGroupsViewModel._groups"/>
+        </member>
+        <member name="F:Group.ViewModel.LoaedeGroupsViewModel.perexodCommand">
+            <summary>The backing field for <see cref="P:Group.ViewModel.LoaedeGroupsViewModel.PerexodCommand"/>.</summary>
+        </member>
+        <member name="P:Group.ViewModel.LoaedeGroupsViewModel.PerexodCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Group.ViewModel.LoaedeGroupsViewModel.Perexod(Group.Models.NewGroupModel)"/>.</summary>
+        </member>
+        <member name="T:Group.ViewModel.MainPageViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Group.ViewModel.MainPageViewModel.Nik">
+            <inheritdoc cref="F:Group.ViewModel.MainPageViewModel._nik"/>
+        </member>
+        <member name="F:Group.ViewModel.MainPageViewModel.saveNikCommand">
+            <summary>The backing field for <see cref="P:Group.ViewModel.MainPageViewModel.SaveNikCommand"/>.</summary>
+        </member>
+        <member name="P:Group.ViewModel.MainPageViewModel.SaveNikCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Group.ViewModel.MainPageViewModel.SaveNik"/>.</summary>
+        </member>
         <member name="T:Group.ViewModel.NewGroupViewModel">
             <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Group.ViewModel.NewGroupViewModel.Nik">
+            <inheritdoc cref="F:Group.ViewModel.NewGroupViewModel._nik"/>
         </member>
         <member name="F:Group.ViewModel.NewGroupViewModel.saveCommand">
             <summary>The backing field for <see cref="P:Group.ViewModel.NewGroupViewModel.SaveCommand"/>.</summary>
@@ -13,11 +56,100 @@
         <member name="P:Group.ViewModel.NewGroupViewModel.SaveCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Group.ViewModel.NewGroupViewModel.Save"/>.</summary>
         </member>
+        <member name="T:Group.ViewModel.SearchPageViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:Group.ViewModel.SearchPageViewModel.GroupId">
+            <inheritdoc cref="F:Group.ViewModel.SearchPageViewModel._groupId"/>
+        </member>
+        <member name="P:Group.ViewModel.SearchPageViewModel.Groups">
+            <inheritdoc cref="F:Group.ViewModel.SearchPageViewModel._groups"/>
+        </member>
+        <member name="F:Group.ViewModel.SearchPageViewModel.searchGroupCommand">
+            <summary>The backing field for <see cref="P:Group.ViewModel.SearchPageViewModel.SearchGroupCommand"/>.</summary>
+        </member>
+        <member name="P:Group.ViewModel.SearchPageViewModel.SearchGroupCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Group.ViewModel.SearchPageViewModel.SearchGroup"/>.</summary>
+        </member>
+        <member name="F:Group.ViewModel.SearchPageViewModel.addBidCommand">
+            <summary>The backing field for <see cref="P:Group.ViewModel.SearchPageViewModel.AddBidCommand"/>.</summary>
+        </member>
+        <member name="P:Group.ViewModel.SearchPageViewModel.AddBidCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Group.ViewModel.SearchPageViewModel.AddBid"/>.</summary>
+        </member>
         <member name="T:Group.Resource">
             <summary>
             Android Resource Designer class.
             Exposes the Android Resource designer assembly into the project Namespace.
             </summary>
+        </member>
+        <member name="T:GroupViewModel">
+            <inheritdoc/>
+        </member>
+        <member name="P:GroupViewModel.SelectedGroup">
+            <inheritdoc cref="F:GroupViewModel._selectedGroup"/>
+        </member>
+        <member name="P:GroupViewModel.IdGroup">
+            <inheritdoc cref="F:GroupViewModel._idGroup"/>
+        </member>
+        <member name="P:GroupViewModel.NameGroup">
+            <inheritdoc cref="F:GroupViewModel._nameGroup"/>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Messags">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Messags" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.SelectedGroup">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "SelectedGroup" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.IdGroup">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "IdGroup" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.NameGroup">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "NameGroup" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Groups">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Groups" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Nik">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Nik" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.GroupId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "GroupId" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Messags">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Messags" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.SelectedGroup">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "SelectedGroup" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.IdGroup">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "IdGroup" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.NameGroup">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "NameGroup" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Groups">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Groups" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Nik">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Nik" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.GroupId">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "GroupId" generated properties.</summary>
         </member>
     </members>
 </doc>

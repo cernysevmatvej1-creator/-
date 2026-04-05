@@ -10,13 +10,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using TRAIN;
-
+using CommunityToolkit.Mvvm.ComponentModel;
+using System.Collections.ObjectModel;
+using Group.Models;
 
 namespace Group.ViewModel
 {
-    using CommunityToolkit.Mvvm.ComponentModel;
-    using System.Collections.ObjectModel;
-    using Group.Models;
+ 
 
     public partial class LoaedeGroupsViewModel : ObservableObject
     {
@@ -38,14 +38,16 @@ namespace Group.ViewModel
             {
 
                 var loadedgroup = await _groupServies.LoadedGroups();
+                if (!loadedgroup.Success)
+                {
+                    await DialogHelper.ShowAlert("Возникла ошибка",loadedgroup.Message);
+                    return;
+                }
                 Groups.Clear();
                 foreach (var group in loadedgroup.Data)
                 {
-                   
                     Groups.Add(group);
-                    await DialogHelper.ShowAlert("csa",group.Bids.Count.ToString());
-               
-
+          
                 }
 
             } 
@@ -56,5 +58,23 @@ namespace Group.ViewModel
                 await DialogHelper.ShowAlert("Ошибка", ex.Message);
             }
         }
+        [RelayCommand]
+        private async Task Perexod(NewGroupModel newGroupModel)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "group", newGroupModel }
+                };
+
+                await Shell.Current.GoToAsync("GroupPage", parameters);
+            }
+            catch (Exception ex)
+            {
+                await DialogHelper.ShowAlert("Ошибка", ex.Message);
+            }
+        }
+
     }
 }

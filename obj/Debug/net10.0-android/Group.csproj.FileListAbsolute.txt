@@ -6,10 +6,6 @@ C:\Project\Group\Group\bin\Debug\net10.0-android\com.companyname.group.aab
 C:\Project\Group\Group\bin\Debug\net10.0-android\com.companyname.group-Signed.aab
 C:\Project\Group\Group\bin\Debug\net10.0-android\com.companyname.group-Signed.apk
 C:\Project\Group\Group\bin\Debug\net10.0-android\com.companyname.group-Signed.apk.idsig
-C:\Project\Group\Group\bin\Debug\net10.0-android\Microsoft.Maui.Controls.HotReload.Forms.dll
-C:\Project\Group\Group\bin\Debug\net10.0-android\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
-C:\Project\Group\Group\bin\Debug\net10.0-android\Microsoft.VisualStudio.DesignTools.TapContract.dll
-C:\Project\Group\Group\bin\Debug\net10.0-android\Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
 C:\Project\Group\Group\obj\Debug\net10.0-android\.NETCoreApp,Version=v10.0.AssemblyAttributes.cs
 C:\Project\Group\Group\obj\Debug\net10.0-android\build.props
 C:\Project\Group\Group\obj\Debug\net10.0-android\adb.props
@@ -130,7 +126,6 @@ C:\Project\Group\Group\obj\Debug\net10.0-android\Group.AssemblyInfoInputs.cache
 C:\Project\Group\Group\obj\Debug\net10.0-android\Group.AssemblyInfo.cs
 C:\Project\Group\Group\obj\Debug\net10.0-android\Group.csproj.CoreCompileInputs.cache
 C:\Project\Group\Group\obj\Debug\net10.0-android\XamlC.stamp
-C:\Project\Group\Group\obj\Debug\net10.0-android\Group.csproj.Up2Date
 C:\Project\Group\Group\obj\Debug\net10.0-android\Group.dll
 C:\Project\Group\Group\obj\Debug\net10.0-android\Group.pdb
 C:\Project\Group\Group\obj\Debug\net10.0-android\Group.genruntimeconfig.cache
@@ -258,9 +253,6 @@ C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Extensions.Primitives.jlo.xml
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Extensions.Primitives.typemap.xml
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Maui.Controls.dll
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Maui.Controls.HotReload.Forms.dll
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Maui.Controls.HotReload.Forms.jlo.xml
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Maui.Controls.HotReload.Forms.typemap.xml
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Maui.Controls.jlo.xml
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Maui.Controls.pdb
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Maui.Controls.typemap.xml
@@ -286,15 +278,6 @@ C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualBasic.dll
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualBasic.jlo.xml
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualBasic.typemap.xml
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualStudio.DesignTools.MobileTapContracts.jlo.xml
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualStudio.DesignTools.MobileTapContracts.typemap.xml
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualStudio.DesignTools.TapContract.dll
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualStudio.DesignTools.TapContract.jlo.xml
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualStudio.DesignTools.TapContract.typemap.xml
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualStudio.DesignTools.XamlTapContract.jlo.xml
-C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.VisualStudio.DesignTools.XamlTapContract.typemap.xml
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Win32.Primitives.dll
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Win32.Primitives.jlo.xml
 C:\Project\Group\Group\obj\Debug\net10.0-android\android\assets\x86_64\Microsoft.Win32.Primitives.typemap.xml
@@ -1629,3 +1612,4 @@ C:\Project\Group\Group\obj\Debug\net10.0-android\stamp\_ConvertResourcesCases.st
 C:\Project\Group\Group\obj\Debug\net10.0-android\stamp\_GenerateJavaStubs.stamp
 C:\Project\Group\Group\obj\Debug\net10.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Project\Group\Group\obj\Debug\net10.0-android\stamp\_ResolveLibraryProjectImports.stamp
+C:\Project\Group\Group\obj\Debug\net10.0-android\Group.sourcelink.json

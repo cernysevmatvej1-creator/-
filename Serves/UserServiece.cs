@@ -41,7 +41,7 @@ namespace Group.Serves
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
-                return Result.Fail("Возникла техническая ошибка");
+                return Result.Fail($"Возникла техническая ошибка {ex.Message}" );
 
             }
         }

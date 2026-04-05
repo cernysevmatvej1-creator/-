@@ -42,7 +42,8 @@ namespace Group.Serves
                         await _groupRepotisiory.AddGroup(newGroupModel, _userRepotisory.GetUserId());
                         Bid bid = new Bid()
                         {
-                         User = loadedprofil.Data
+                         User = loadedprofil.Data,
+                         GetGroupId = groupid,  
                         };
                         return await _groupRepotisiory.AddBid(groupid,bid);
                     }
@@ -84,16 +85,45 @@ namespace Group.Serves
             }
         }
 
+        public async  Task<Result> AddMembers(Bid bid, string getgroupid)
+        {
+            if (bid == null)
+                return Result.Fail("Заявка пуста");
+            if (getgroupid == null)
+                return Result.Fail("Айди не действительно");
+            if (bid.User == null)
+                return Result.Fail("User == null");
+            await _groupRepotisiory.RemoveBid(bid, getgroupid);
+            return await _groupRepotisiory.AddMembers(bid, getgroupid);
+            
+   
+        }
+
         public async Task<Result<List<NewGroupModel>>> LoadedGroups()
         {
             try
             {
                 var loadedgroups = await _groupRepotisiory.LoadedGroup(_userRepotisory.GetUserId());
-                return loadedgroups;
+                List<NewGroupModel> groups = new List<NewGroupModel>();
+                if (loadedgroups == null || loadedgroups.Data == null )
+                    return Result<List<NewGroupModel>>.Fail("Нет групп");
+                foreach (var group in loadedgroups.Data)
+                {
+                    var grup = await  _groupRepotisiory.SearchGroup(group.Id);
+                    groups.Add(grup.Data);
+                }
+                if (groups == null)
+                    return Result<List<NewGroupModel>>.Fail("Нет групп");
+                return Result<List<NewGroupModel>>.Ok(groups,"Группы загружены");
             }
             catch (Exception ex) { 
             return  Result<List<NewGroupModel>>.Fail(ex.Message);
             }
+        }
+
+        public async  Task<Result> RemoveBid(Bid bid, string getgroupid)
+        {
+            throw new NotImplementedException();
         }
 
         public async  Task<Result<NewGroupModel>> SearchGroup(string groupid)

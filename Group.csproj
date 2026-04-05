@@ -73,13 +73,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Group.xaml.cs">
+	    <DependentUpon>Group.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="SearhPage.xaml.cs">
 	    <DependentUpon>SearhPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="ChatGroup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="LoadedGroup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Group.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="SearhPage.xaml">

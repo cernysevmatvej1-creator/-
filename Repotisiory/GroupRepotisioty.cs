@@ -32,11 +32,10 @@ namespace Group.Repotisiory
                 var listgroups = await firebaseClient.Child("Group").Child(getuserid).Child("MyGroup").OnceAsync<NewGroupModel>();
                var  listgroup = new List<NewGroupModel>();
                 foreach (var group in listgroups) {
-
-                    var groups=   await SearchGroup(group.Object.Id);
-                    listgroup.Add(groups.Data);
-                    
-
+                    listgroup.Add(new NewGroupModel
+                    {
+                        Id = group.Object.Id,
+                    });
                 }
                 if (listgroup == null)
                 {
@@ -65,13 +64,17 @@ namespace Group.Repotisiory
                     return Result<NewGroupModel>.Fail("Авторизация прошла успешно");
                 var serachgroupmodel = await firebaseClient.Child("Group").Child(groupid).Child("GroupProfil").OnceSingleAsync<NewGroupModel>();
                 var serachgroupbids = await firebaseClient.Child("Group").Child(groupid).Child("Bids").OnceAsync<Bid>();
+               
                 if (serachgroupmodel == null)
                     return Result<NewGroupModel>.Fail("Группа не найдена");
                 foreach (var bid in serachgroupbids) {
                     serachgroupmodel.Bids.Add(new Bid()
                     {
                         User = bid.Object.User,
+                        Key = bid.Key, 
+
                     }) ;
+                    
                 }
                 await DialogHelper.ShowAlert("asdasd", serachgroupmodel.NikAvtor);
                 return Result<NewGroupModel>.Ok(new NewGroupModel()
@@ -108,6 +111,38 @@ namespace Group.Repotisiory
          
 
 
+        }
+        public async Task<Result> AddMembers(Bid bid,string getgroupid)
+        {
+            try
+            {
+        
+                if (!await base.Authorization())
+                    return Result.Fail("Авторизация прошла неуспешно");
+                await firebaseClient.Child("Group").Child(getgroupid).Child("members").PostAsync(bid.User);
+            
+                return Result.Ok();
+
+            }
+            catch(Exception ex) 
+            {
+                return Result.Fail(ex.Message);    
+            }
+        }
+        public async Task<Result> RemoveBid(Bid bid, string getgroupid)
+        {
+            try
+            {
+                if (!await base.Authorization())
+                    return Result.Fail("Авторизация прошла неуспешно");
+                await firebaseClient.Child("Group").Child(getgroupid).Child("Bids").Child(bid.Key).DeleteAsync();
+                
+                return Result.Ok();
+            }
+            catch (Exception ex)
+            {
+                return Result.Fail(ex.Message);
+            }
         }
     }
 }

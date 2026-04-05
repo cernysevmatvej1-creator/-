@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Group.NewPage1"
+             
+             Title="NewPage1">
+    <Frame BorderColor="WhiteSmoke" CornerRadius="10" Padding="0" Margin="0,5" WidthRequest="1000" HeightRequest="200" >
+
+        <ScrollView >
+            <StackLayout >
+                <VerticalStackLayout Padding="10">
+                    <Label Text="ID" ></Label>
+                    <Label Text="{Binding IdGroup}" ></Label>
+                    <Label Text="Ник"></Label>
+                    <Label Text="{Binding NameGroup}" ></Label>
+                </VerticalStackLayout>
+                <Button Text="Чат" Command="{Binding PereitiChatCommand}" HeightRequest="20" Margin="3,0,800,4" Background="Blue"  WidthRequest="60"></Button>
+            </StackLayout>
+           
+        </ScrollView>
+    
+    </Frame>
+</ContentPage>

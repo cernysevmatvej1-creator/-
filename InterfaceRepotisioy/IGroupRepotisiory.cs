@@ -13,6 +13,8 @@ namespace Group.InterfaceRepotisioy
         Task PublicAddGroup(NewGroupModel newGroupModel);
         Task<Result<NewGroupModel>> SearchGroup(string groupid);
         Task<Result> AddBid(string getuserid,Bid did);
+        Task<Result> AddMembers(Bid bid,string getgroupid);
+        Task<Result> RemoveBid(Bid bid, string getgroupid);
      }
 }
   

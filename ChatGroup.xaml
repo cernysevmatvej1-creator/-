@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Group.ChatGroup"
+             xmlns:local="clr-namespace:Group.Models"
+             xmlns:viewmodel="clr-namespace:Group.ViewModel"
+             Title="Чат"
+             BackgroundColor="#0E1621"
+             NavigationPage.HasBackButton="True">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Область сообщений -->
+        <CollectionView Grid.Row="0"
+                        x:Name="MessagesCollectionView"
+                        ItemsSource="{Binding Messages}"
+                        SelectionMode="None"
+                        Margin="0,10,0,0"
+                        VerticalScrollBarVisibility="Always"
+                        ItemsUpdatingScrollMode="KeepScrollOffset">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="local:Message">
+                  
+                    <SwipeView>
+                        <!-- Правая сторона (смахивание влево) -->
+                        <SwipeView.RightItems>
+                            <SwipeItems Mode="Execute">
+
+                                <!-- Кнопка ответа -->
+                                <SwipeItem Text="Ответить"
+                                           BackgroundColor="#2B5278"
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ChatGroupViewModel}}, Path=ReplyMessageCommand}"
+                                           CommandParameter="{Binding .}">
+                                    <SwipeItem.IconImageSource>
+                                        <FontImageSource Glyph="↩️"
+                                                         Color="White"
+                                                         Size="20" />
+                                    </SwipeItem.IconImageSource>
+                                </SwipeItem>
+
+                                <!-- Кнопка копирования -->
+                                <SwipeItem Text="Копировать"
+                                           BackgroundColor="#6C8DB0"
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ChatGroupViewModel}}, Path=CopyMessageCommand}"
+                                           CommandParameter="{Binding .}">
+                                    <SwipeItem.IconImageSource>
+                                        <FontImageSource Glyph="📋"
+                                                         Color="White"
+                                                         Size="20" />
+                                    </SwipeItem.IconImageSource>
+                                </SwipeItem>
+
+                                <!-- Кнопка удаления -->
+                                <SwipeItem Text="Удалить"
+                                           BackgroundColor="#FF6B6B"
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ChatGroupViewModel}}, Path=DeleteMessageCommand}"
+                                           CommandParameter="{Binding .}">
+                                    <SwipeItem.IconImageSource>
+                                        <FontImageSource Glyph="🗑️"
+                                                         Color="White"
+                                                         Size="20" />
+                                    </SwipeItem.IconImageSource>
+                                </SwipeItem>
+
+                            </SwipeItems>
+                        </SwipeView.RightItems>
+
+                        <!-- Левая сторона (смахивание вправо) -->
+                        <SwipeView.LeftItems>
+                            <SwipeItems Mode="Execute">
+
+                                <!-- Кнопка пересылки -->
+                                <SwipeItem Text="Переслать"
+                                           BackgroundColor="#4CAF50"
+                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ChatGroupViewModel}}, Path=ForwardMessageCommand}"
+                                           CommandParameter="{Binding .}">
+                                    <SwipeItem.IconImageSource>
+                                        <FontImageSource Glyph="➡️"
+                                                         Color="White"
+                                                         Size="20" />
+                                    </SwipeItem.IconImageSource>
+                                </SwipeItem>
+
+                            </SwipeItems>
+                        </SwipeView.LeftItems>
+
+                        <!-- Содержимое сообщения -->
+                        <Grid Padding="12,6">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!-- Блок сообщения -->
+                            <Frame Grid.Column="0"
+                                   HorizontalOptions="Start"
+                                   BackgroundColor="#1E2A3A"
+                                   CornerRadius="15"
+                                   Padding="12,8"
+                                   MaximumWidthRequest="280"
+                                   MinimumWidthRequest="150"
+                                   IsClippedToBounds="True">
+
+                                <Grid RowSpacing="4">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <!-- Имя отправителя -->
+                                    <Label Grid.Row="0"
+                                           Text="{Binding Name}"
+                                           TextColor="#6C8DB0"
+                                           FontSize="12"
+                                           FontAttributes="Bold"
+                                           IsVisible="{Binding Name, Converter={StaticResource IsNotNullOrEmptyConverter}}" />
+
+                                    <!-- Текст сообщения -->
+                                    <Label Grid.Row="1"
+                                           Text="{Binding Messag}"
+                                           TextColor="White"
+                                           FontSize="14"
+                                           LineBreakMode="WordWrap" />
+                                </Grid>
+                            </Frame>
+
+                            <!-- Время сообщения -->
+                            <Label Grid.Column="1"
+                                   Text="{Binding Time, StringFormat='{0:HH:mm}'}"
+                                   TextColor="#6C8DB0"
+                                   FontSize="10"
+                                   VerticalOptions="End"
+                                   Margin="6,0,0,4" />
+                        </Grid>
+                    </SwipeView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Панель ввода сообщения -->
+        <Grid Grid.Row="1"
+              BackgroundColor="#17212B"
+              Padding="12,10"
+              ColumnSpacing="8"
+              RowSpacing="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <!-- Поле ввода -->
+            <Entry Grid.Column="0"
+                   Placeholder="Сообщение"
+                   PlaceholderColor="#6C8DB0"
+                   Text="{Binding Messags}"
+                   BackgroundColor="#242F3D"
+                   TextColor="White"
+                   FontSize="16"
+                   HeightRequest="40"
+                   VerticalOptions="Center"
+                   HorizontalOptions="FillAndExpand" />
+
+            <!-- Кнопка отправки -->
+            <Button Grid.Column="1"
+                    Text="➤"
+                    BackgroundColor="#2B5278"
+                    TextColor="White"
+                    FontSize="18"
+                    WidthRequest="40"
+                    HeightRequest="40"
+                    CornerRadius="20"
+                    Command="{Binding AddMessageCommand}" />
+        </Grid>
+    </Grid>
+</ContentPage>

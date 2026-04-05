@@ -32,34 +32,9 @@
                                         <Label Text="Заявки на вступление:" 
                                                FontSize="16"
                                                TextColor="LightGray"/>
-
-                                        <CollectionView ItemsSource="{Binding Bids}" 
-                                                        HeightRequest="100">
-                                            <CollectionView.ItemTemplate>
-                                                <DataTemplate x:DataType="local:Bid">
-                                                    <HorizontalStackLayout Spacing="10" Padding="5">
-                                                        <Label Text="•" TextColor="White"/>
-                                                        <Label Text="{Binding User.Name}" 
-                                                               TextColor="White"
-                                                               VerticalOptions="Center"/>
-                                                        <Button Text="Принять" 
-                                                                BackgroundColor="Green"
-                                                                WidthRequest="80"
-                                                                HeightRequest="30"/>
-                                                        <Button Text="Отклонить" 
-                                                                BackgroundColor="Red"
-                                                                WidthRequest="80"
-                                                                HeightRequest="30"/>
-                                                    </HorizontalStackLayout>
-                                                </DataTemplate>
-                                            </CollectionView.ItemTemplate>
-
-                                            <CollectionView.EmptyView>
-                                                <Label Text="Нет заявок" 
-                                                       TextColor="Gray"
-                                                       HorizontalOptions="Center"/>
-                                            </CollectionView.EmptyView>
-                                        </CollectionView>
+                    
+                                        <Button Text="Перейти в группу"    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.PerexodCommand}"
+  CommandParameter="{Binding .}" ></Button>
                                     </VerticalStackLayout>
                                 </Border>
                             </VerticalStackLayout>
