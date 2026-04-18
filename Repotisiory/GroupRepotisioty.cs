@@ -54,7 +54,24 @@ namespace Group.Repotisiory
         {
             
         }
-
+        public async Task<Result<List<Bid>>> LoadedBids(string groupid)
+        {
+            
+            var serachgroupbid = await firebaseClient.Child("Group").Child(groupid).Child("Bids").OnceAsync<Bid>();
+            List<Bid> bids = new List<Bid>();
+            foreach (var bid in serachgroupbid) {
+                bids.Add(new Bid
+                {
+                    Key = bid.Key,
+                    GetGroupId = bid.Object.GetGroupId,
+                    User = bid.Object.User, 
+                });
+            }
+            if (bids.Count == null)
+                return Result<List<Bid>>.Fail("Заявки пусты");
+            return Result<List<Bid>>.Ok(bids);
+           
+        }
         public async Task<Result<NewGroupModel>> SearchGroup(string groupid)
         {
             try 
@@ -63,27 +80,16 @@ namespace Group.Repotisiory
                 if (!check)
                     return Result<NewGroupModel>.Fail("Авторизация прошла успешно");
                 var serachgroupmodel = await firebaseClient.Child("Group").Child(groupid).Child("GroupProfil").OnceSingleAsync<NewGroupModel>();
-                var serachgroupbids = await firebaseClient.Child("Group").Child(groupid).Child("Bids").OnceAsync<Bid>();
+               
                
                 if (serachgroupmodel == null)
                     return Result<NewGroupModel>.Fail("Группа не найдена");
-                foreach (var bid in serachgroupbids) {
-                    serachgroupmodel.Bids.Add(new Bid()
-                    {
-                        User = bid.Object.User,
-                        Key = bid.Key, 
-
-                    }) ;
-                    
-                }
-                await DialogHelper.ShowAlert("asdasd", serachgroupmodel.NikAvtor);
+              
+            
                 return Result<NewGroupModel>.Ok(new NewGroupModel()
                 {
                     Id = serachgroupmodel.Id,
-                    NikAvtor = serachgroupmodel.NikAvtor,
-                  
-                    Bids = serachgroupmodel.Bids,
-                    
+                    NikAvtor = serachgroupmodel.NikAvtor,  
                 });
 
             }

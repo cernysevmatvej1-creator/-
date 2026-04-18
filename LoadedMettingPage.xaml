@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Group.LoadedMettingPage"
+             xmlns:local="clr-namespace:Group.Models"
+             Title="LoadedMettingPage">
+    <ScrollView>
+        <StackLayout Padding="10">
+            <CollectionView ItemsSource="{Binding Metting}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Metting">
+                        <Frame BackgroundColor="#2B2B2B" 
+                               BorderColor="#444444" 
+                               CornerRadius="10" 
+                               Margin="0,5,0,5" 
+                               Padding="15">
+                            <VerticalStackLayout Spacing="8">
+                                <HorizontalStackLayout>
+                                    <Label Text="Кто предложил идею: " 
+                                           TextColor="#AAAAAA" 
+                                           FontSize="14" />
+                                    <Label Text="{Binding NameAvtorMetting}" 
+                                           TextColor="White" 
+                                           FontSize="16" 
+                                           FontAttributes="Bold" />
+                                </HorizontalStackLayout>
+
+                                <!-- Добавил дополнительные поля, если они есть в модели -->
+                                <HorizontalStackLayout>
+                                    <Label Text="Место встречи: " 
+                                           TextColor="#AAAAAA" 
+                                           FontSize="14" />
+                                    <Label Text="{Binding Mesto}" 
+                                           TextColor="White" 
+                                           FontSize="14" />
+                                </HorizontalStackLayout>
+
+                                <HorizontalStackLayout>
+                                    <Label Text="Дата: " 
+                                           TextColor="#AAAAAA" 
+                                           FontSize="14" />
+                                    <Label Text="{Binding Time}" 
+                                           TextColor="White" 
+                                           FontSize="14" />
+                                    
+                                </HorizontalStackLayout>
+                                <VerticalStackLayout >
+                                    <Button Text="Я пойду" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.PoitiCommand}"
+CommandParameter="{Binding .}" ></Button>
+                                    <Button Text="Я не пойду" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.NoPoitiCommand}"
+CommandParameter="{Binding .}" ></Button>
+                                </VerticalStackLayout>
+                                <CollectionView ItemsSource="{Binding Users}" >
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate x:DataType="local:User" >
+                                            <Frame >
+                                                <VerticalStackLayout>
+                                                    <HorizontalStackLayout >
+                                                        <Label Text="Ник" ></Label>
+                                                        <Label Text="{Binding }" ></Label>
+                                                    </HorizontalStackLayout>
+                                                </VerticalStackLayout>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+                            </VerticalStackLayout>
+                            
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

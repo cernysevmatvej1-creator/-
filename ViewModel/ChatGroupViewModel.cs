@@ -71,10 +71,10 @@ namespace Group.ViewModel
 
             var messageText = Messags;
             var result = await _chatservise.AddMessage(messageText, GroupId);
-
+                 Messags = string.Empty; 
             if (result.Success == true)
             {
-                Messags = string.Empty; 
+           
 
               
                

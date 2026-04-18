@@ -16,7 +16,10 @@ namespace Group.ViewModel
 
         [ObservableProperty]
         private string _nik;
+        [ObservableProperty]
+        private string _description;
         private IGroupServise _groupServise;
+        
         public NewGroupViewModel(IGroupServise groupServise)
         {
           _groupServise = groupServise;
@@ -29,7 +32,7 @@ namespace Group.ViewModel
             {
                 Id  = Guid.NewGuid().ToString(),    
                 NikAvtor = _nik,
-                
+                Description = _description, 
             };
          
            var check = await _groupServise.AddGroup(model);

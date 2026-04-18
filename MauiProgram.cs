@@ -20,7 +20,8 @@ public static class MauiProgram
         builder.Services.AddSingleton<IUserServies, UserServiece>();
         builder.Services.AddSingleton<IChatServise,ChatService>();
         builder.Services.AddSingleton<IChatRepotisory, ChatRepotisory>();
-
+        builder.Services.AddSingleton<IMettingRepositiory, MettingRepositiory>();
+        builder.Services.AddSingleton<IMettingService, MettingServies>();
         builder.Services.AddTransient<NewGroupViewModel>();
         builder.Services.AddTransient<MainPageViewModel>();
         builder.Services.AddTransient<LoaedeGroupsViewModel>();
@@ -33,8 +34,13 @@ public static class MauiProgram
         builder.Services.AddTransient<ChatGroupViewModel>();
         builder.Services.AddTransient<GroupViewModel>();
         builder.Services.AddTransient<LoadedGroup>();
-      
+        builder.Services.AddTransient<BidPageViewModel>();
+        builder.Services.AddTransient<MeetingPageViewModel>();
+        builder.Services.AddTransient<LoadedMettingPage>();
+        builder.Services.AddTransient<LoadedMettingViewModel>();
+        builder.Services.AddTransient<MettingPage>();
         builder.Services.AddSingleton<AppShell>();
+
 
         return builder.Build();
     }

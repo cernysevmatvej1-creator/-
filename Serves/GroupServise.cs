@@ -120,10 +120,19 @@ namespace Group.Serves
             return  Result<List<NewGroupModel>>.Fail(ex.Message);
             }
         }
-
+        public async Task<Result<List<Bid>>> LoadedBids(string groupid)
+        {
+            if (groupid == null)
+                return Result<List<Bid>>.Fail("ID == NULL");
+            return await _groupRepotisiory.LoadedBids(groupid);
+        }
         public async  Task<Result> RemoveBid(Bid bid, string getgroupid)
         {
-            throw new NotImplementedException();
+            if (bid == null)
+                return Result.Fail("Заявка пуста");
+            if (getgroupid == null)
+                return Result.Fail("Айди не действительно");
+          return  await _groupRepotisiory.RemoveBid(bid, getgroupid);
         }
 
         public async  Task<Result<NewGroupModel>> SearchGroup(string groupid)

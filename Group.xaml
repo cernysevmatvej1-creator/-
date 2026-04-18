@@ -2,22 +2,178 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Group.NewPage1"
-             
-             Title="NewPage1">
-    <Frame BorderColor="WhiteSmoke" CornerRadius="10" Padding="0" Margin="0,5" WidthRequest="1000" HeightRequest="200" >
+             Title="Информация о группе"
+             BackgroundColor="#0D0D0D">
 
-        <ScrollView >
-            <StackLayout >
-                <VerticalStackLayout Padding="10">
-                    <Label Text="ID" ></Label>
-                    <Label Text="{Binding IdGroup}" ></Label>
-                    <Label Text="Ник"></Label>
-                    <Label Text="{Binding NameGroup}" ></Label>
+    <!-- Основной контейнер с отступами -->
+    <VerticalStackLayout Padding="20" Spacing="15" VerticalOptions="Start">
+
+        <!-- Карточка с информацией о группе -->
+        <Frame BackgroundColor="#1C1C1E" 
+               CornerRadius="20" 
+               Padding="24" 
+               Margin="0,0,0,10"
+               HasShadow="True"
+               BorderColor="#2C2C2E">
+
+            <VerticalStackLayout Spacing="20">
+
+                <!-- Заголовок карточки -->
+                <Label Text="ИНФОРМАЦИЯ О ГРУППЕ" 
+                       TextColor="#8E8E93" 
+                       FontSize="12" 
+                       FontAttributes="Bold"
+                       CharacterSpacing="1.5"
+                       Margin="0,0,0,5"/>
+
+                <!-- Блок с ID группы -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="ID ГРУППЫ" 
+                           TextColor="#8E8E93" 
+                           FontSize="11" 
+                           CharacterSpacing="1.2"/>
+
+                    <!-- ID в стильном блоке -->
+                    <Frame BackgroundColor="#2C2C2E" 
+                           CornerRadius="12" 
+                           Padding="15,10" 
+                           BorderColor="#3A3A3C">
+                        <Label Text="{Binding IdGroup}" 
+                               TextColor="#0A84FF" 
+                               FontSize="18" 
+                               FontAttributes="Bold"
+                               FontFamily="Menlo"
+                               HorizontalTextAlignment="Center"/>
+                    </Frame>
                 </VerticalStackLayout>
-                <Button Text="Чат" Command="{Binding PereitiChatCommand}" HeightRequest="20" Margin="3,0,800,4" Background="Blue"  WidthRequest="60"></Button>
-            </StackLayout>
-           
-        </ScrollView>
-    
-    </Frame>
+
+                <!-- Разделитель -->
+                <BoxView HeightRequest="1" BackgroundColor="#2C2C2E" Margin="0,5"/>
+
+                <!-- Блок с названием группы -->
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="НАЗВАНИЕ ГРУППЫ" 
+                           TextColor="#8E8E93" 
+                           FontSize="11" 
+                           CharacterSpacing="1.2"/>
+
+                    <!-- Название группы с аватаркой-заглушкой -->
+                    <HorizontalStackLayout Spacing="12">
+                        <!-- Аватар группы -->
+                        <Frame CornerRadius="25" 
+                               HeightRequest="50" 
+                               WidthRequest="50" 
+                               Padding="0" 
+                               BackgroundColor="#BF5AF2" 
+                               BorderColor="Transparent"
+                               HorizontalOptions="Center" 
+                               VerticalOptions="Center">
+                            <Label Text="{Binding NameGroup, StringFormat='{}{0:0:1}'}" 
+                                   TextColor="White" 
+                                   FontSize="22" 
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center" 
+                                   VerticalOptions="Center"/>
+                        </Frame>
+
+                        <Label Text="{Binding NameGroup}" 
+                               TextColor="White" 
+                               FontSize="20" 
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"
+                               LineBreakMode="TailTruncation"/>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+
+            </VerticalStackLayout>
+        </Frame>
+
+        <!-- Карточка с действиями -->
+        <Frame BackgroundColor="#1C1C1E" 
+               CornerRadius="20" 
+               Padding="20" 
+               HasShadow="True"
+               BorderColor="#2C2C2E">
+
+            <VerticalStackLayout Spacing="15">
+
+                <Label Text="ДЕЙСТВИЯ" 
+                       TextColor="#8E8E93" 
+                       FontSize="12" 
+                       FontAttributes="Bold"
+                       CharacterSpacing="1.5"
+                       Margin="0,0,0,5"/>
+
+                <!-- Контейнер для кнопок -->
+                <HorizontalStackLayout Spacing="12" HorizontalOptions="FillAndExpand">
+
+                    <!-- Кнопка "Заявки" -->
+                    <Button Text="📋 ЗАЯВКИ" 
+                            Command="{Binding PeretiBidCommand}" 
+                            Background="#0A84FF" 
+                            TextColor="White"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            CornerRadius="14"
+                            HeightRequest="55"
+                            HorizontalOptions="FillAndExpand">
+                        <Button.Shadow>
+                            <Shadow Brush="#0A84FF" 
+                                    Offset="0,4" 
+                                    Radius="12" 
+                                    Opacity="0.4"/>
+                        </Button.Shadow>
+                    </Button>
+
+                    <!-- Кнопка "Чат" -->
+                    <Button Text="💬 ЧАТ" 
+                            Command="{Binding PereitiChatCommand}" 
+                            Background="#30D158" 
+                            TextColor="White"
+                            FontSize="15"
+                            FontAttributes="Bold"
+                            CornerRadius="14"
+                            HeightRequest="55"
+                            HorizontalOptions="FillAndExpand">
+                        <Button.Shadow>
+                            <Shadow Brush="#30D158" 
+                                    Offset="0,4" 
+                                    Radius="12" 
+                                    Opacity="0.4"/>
+                        </Button.Shadow>
+                    </Button>
+                    <!-- Кнопка "Заявки" -->
+                    <Button Text="CОЗДАТЬ ВСТРЕЧУ" 
+         Command="{Binding PeretiVstreCommand}" 
+         Background="#0A84FF" 
+         TextColor="White"
+         FontSize="15"
+         FontAttributes="Bold"
+         CornerRadius="14"
+         HeightRequest="55"
+         HorizontalOptions="FillAndExpand"/>
+                    <Button Text="ПОСМОТРЕТЬ ВСТРЕЧИ" 
+Command="{Binding PeretiLoadedVstreCommand}" 
+BackgroundColor="#FAD201" 
+TextColor="#FFFFFF"
+FontSize="15"
+FontAttributes="Bold"
+CornerRadius="14"
+HeightRequest="55"
+HorizontalOptions="FillAndExpand"/>
+
+                </HorizontalStackLayout>
+
+                <!-- Дополнительная информация или подсказка -->
+                <Label Text="Выберите действие для продолжения" 
+                       TextColor="#636366" 
+                       FontSize="12" 
+                       HorizontalTextAlignment="Center"
+                       Margin="0,5,0,0"/>
+
+            </VerticalStackLayout>
+
+        </Frame>
+
+    </VerticalStackLayout>
 </ContentPage>

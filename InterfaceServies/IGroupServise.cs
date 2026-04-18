@@ -14,5 +14,6 @@ namespace Group.InterfaceServies
         Task<Result> AddBid(string groupid,NewGroupModel newGroupModel);
         Task<Result> AddMembers(Bid bid, string getgroupid);
         Task<Result> RemoveBid(Bid bid, string getgroupid);
+        Task<Result<List<Bid>>> LoadedBids(string groupid);
     }
 }

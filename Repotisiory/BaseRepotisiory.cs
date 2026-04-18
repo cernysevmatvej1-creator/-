@@ -13,7 +13,6 @@ namespace Group.Repotisiory
     {
         protected FirebaseClient firebaseClient;
         private const string _username = "username";
-        
         private const string _firabsetoken = "FirebaseToken";
         private const string _refrsehntoken = "RefreshToken";
       

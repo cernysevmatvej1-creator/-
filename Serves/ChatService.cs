@@ -25,14 +25,14 @@ namespace Group.Serves
 
         public async  Task<Result> AddMessage(string message,string getgroupid)
         {
-            if (message == null)
+            if (message == null || message.Trim() == null )
                 return Result.Fail("Сообщение нулевое");
             var username = await _userRepotisory.LoadedUserProfil(_userRepotisory.GetUserId());
             if (username.Data.Name == null)
                 return Result.Fail("Имя нулевое");
             Message message1 = new Message()
             {
-                Messag = message,
+                Messag = message.Trim(),
                 Name = username.Data.Name
             };
          return  await _chatRepotisory.AddMessage(message1,getgroupid);

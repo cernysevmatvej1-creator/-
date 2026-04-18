@@ -32,19 +32,49 @@ public partial class GroupViewModel : ObservableObject, IQueryAttributable
     {
         if (query.ContainsKey("group"))
         {
-            SelectedGroup = query["group"] as NewGroupModel; // Используй свойство, а не поле
-            NameGroup = SelectedGroup?.NikAvtor; // Используй свойство, а не поле
-            IdGroup = SelectedGroup?.Id; // Используй свойство, а не поле
+            SelectedGroup = query["group"] as NewGroupModel; 
+            NameGroup = SelectedGroup?.NikAvtor; 
+            IdGroup = SelectedGroup?.Id; 
         }
+    }
+    [RelayCommand]
+    private async Task PeretiLoadedVstre()
+    {
+        var parameters = new Dictionary<string, object>
+        {
+            { "groupId", IdGroup }
+        };
+
+        await Shell.Current.GoToAsync("LoadedMetting", parameters);
     }
     [RelayCommand]
     private async Task PereitiChat()
     {
         var parameters = new Dictionary<string, object>
         {
-            { "groupId", IdGroup } // Ключ "groupId" совпадает с ключом в ChatGroupViewModel
+            { "groupId", IdGroup } 
         };
 
         await Shell.Current.GoToAsync("ChatGroup", parameters);
+    }
+    [RelayCommand]
+    private async Task PeretiVstre()
+    {
+        var parameters = new Dictionary<string, object>
+        {
+            { "groupId", IdGroup }
+        };
+
+        await Shell.Current.GoToAsync("MeetingPage", parameters);
+    }
+    [RelayCommand]
+    private async Task PeretiBid()
+    {
+        var parameters = new Dictionary<string, object>
+        {
+            { "groupId", IdGroup } 
+        };
+
+        await Shell.Current.GoToAsync("BidPage", parameters);
     }
 }

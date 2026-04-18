@@ -15,6 +15,7 @@ namespace Group.InterfaceRepotisioy
         Task<Result> AddBid(string getuserid,Bid did);
         Task<Result> AddMembers(Bid bid,string getgroupid);
         Task<Result> RemoveBid(Bid bid, string getgroupid);
+        Task<Result<List<Bid>>> LoadedBids(string groupid);
      }
 }
   

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Group.MettingPage"
+             Title="Создать встречу"
+             BackgroundColor="#0D0D0D">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20,24" Spacing="16">
+
+            <!-- ─── Заголовок страницы ─── -->
+            <HorizontalStackLayout Spacing="10" Margin="4,0,0,8">
+                <BoxView WidthRequest="4"
+                         HeightRequest="28"
+                         CornerRadius="2"
+                         BackgroundColor="#FF9F0A"
+                         VerticalOptions="Center"/>
+                <Label Text="Новая встреча"
+                       TextColor="White"
+                       FontSize="22"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <!-- ─── Карточка с полями ─── -->
+            <Frame BackgroundColor="#1C1C1E"
+                   CornerRadius="20"
+                   Padding="0"
+                   HasShadow="False"
+                   BorderColor="#2C2C2E">
+
+                <VerticalStackLayout Spacing="0">
+
+                    <!-- Поле: Время -->
+                    <VerticalStackLayout Padding="20,20,20,16" Spacing="8">
+                        <Label Text="ВРЕМЯ"
+                               TextColor="#8E8E93"
+                               FontSize="11"
+                               FontAttributes="Bold"
+                               CharacterSpacing="1.4"/>
+
+                        <Frame BackgroundColor="#2C2C2E"
+                               CornerRadius="12"
+                               Padding="14,4"
+                               BorderColor="#3A3A3C">
+                            <HorizontalStackLayout Spacing="10">
+                                <Label Text="🕐"
+                                       FontSize="18"
+                                       VerticalOptions="Center"/>
+                                <Entry Placeholder="Например: 15:00"
+                                       Text="{Binding Time}"
+                                       PlaceholderColor="#48484A"
+                                       TextColor="White"
+                                       FontSize="16"
+                                       BackgroundColor="Transparent"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <!-- Разделитель -->
+                    <BoxView HeightRequest="1" BackgroundColor="#2C2C2E" Margin="20,0"/>
+
+                    <!-- Поле: Место -->
+                    <VerticalStackLayout Padding="20,16,20,20" Spacing="8">
+                        <Label Text="МЕСТО"
+                               TextColor="#8E8E93"
+                               FontSize="11"
+                               FontAttributes="Bold"
+                               CharacterSpacing="1.4"/>
+
+                        <Frame BackgroundColor="#2C2C2E"
+                               CornerRadius="12"
+                               Padding="14,4"
+                               BorderColor="#3A3A3C">
+                            <HorizontalStackLayout Spacing="10">
+                                <Label Text="📍"
+                                       FontSize="18"
+                                       VerticalOptions="Center"/>
+                                <Entry Placeholder="Например: Кабинет 305"
+                                       Text="{Binding Mesto}"
+                                       PlaceholderColor="#48484A"
+                                       TextColor="White"
+                                       FontSize="16"
+                                       BackgroundColor="Transparent"
+                                       HorizontalOptions="FillAndExpand"
+                                       VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- ─── Кнопка создать ─── -->
+            <Button Text="📅  Создать встречу"
+                    Command="{Binding AddMettingCommand}"
+                    BackgroundColor="#FF9F0A"
+                    TextColor="White"
+                    FontSize="16"
+                    FontAttributes="Bold"
+                    CornerRadius="14"
+                    HeightRequest="54"
+                    HorizontalOptions="Fill">
+                <Button.Shadow>
+                    <Shadow Brush="#FF9F0A"
+                            Offset="0,4"
+                            Radius="10"
+                            Opacity="0.35"/>
+                </Button.Shadow>
+            </Button>
+
+            <Label Text="Заполните все поля для создания встречи"
+                   TextColor="#48484A"
+                   FontSize="12"
+                   HorizontalTextAlignment="Center"
+                   Margin="0,4,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

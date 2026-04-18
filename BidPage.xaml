@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Group.BidPage"
+             xmlns:local="clr-namespace:Group.Models"
+             xmlns:viewmodel="clr-namespace:Group.ViewModel"
+             Title="BidPage"
+             BackgroundColor="#0D0D0D">
+    <!-- Глубокий черный фон страницы -->
+
+    <StackLayout Margin="15" Spacing="10">
+        <CollectionView ItemsSource="{Binding Bids}" >
+            <CollectionView.ItemTemplate >
+                <DataTemplate x:DataType="local:Bid" >
+                    <!-- Убрали стандартный Frame, сделали свой стиль с помощью Border и Shadow -->
+                    <Grid Padding="0" Margin="0,0,0,12">
+                        <!-- Тень (для iOS/Android работает через Shadow, для WinUI - через DropShadow эффект, но используем стандартное свойство MAUI) -->
+                        <Frame CornerRadius="16" 
+                               HasShadow="True" 
+                               BackgroundColor="#1C1C1E" 
+                               BorderColor="#2C2C2E" 
+                               Padding="16"
+                               Margin="0">
+
+                            <VerticalStackLayout Spacing="12">
+
+                                <!-- Заголовок заявки -->
+                                <HorizontalStackLayout Spacing="8">
+                                    <Label Text="ЗАЯВКА #" 
+                                           TextColor="#8E8E93" 
+                                           FontSize="12" 
+                                           FontAttributes="Bold"
+                                           CharacterSpacing="1.2"
+                                           VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding User.Id}" 
+                                           TextColor="#E5E5EA" 
+                                           FontSize="16" 
+                                           FontAttributes="Bold"
+                                           VerticalTextAlignment="Center"/>
+                                </HorizontalStackLayout>
+
+                                <!-- Разделительная линия -->
+                                <BoxView HeightRequest="1" BackgroundColor="#2C2C2E" Margin="0, -4"/>
+
+                                <!-- Информация о пользователе с иконкой (имитация через текст) -->
+                                <HorizontalStackLayout Spacing="10">
+                                    <!-- Аватарка-заглушка в виде круга с первой буквой -->
+                                    <Frame CornerRadius="25" 
+                                           HeightRequest="50" 
+                                           WidthRequest="50" 
+                                           Padding="0" 
+                                           BackgroundColor="#FF453A" 
+                                           BorderColor="Transparent"
+                                           HorizontalOptions="Center" 
+                                           VerticalOptions="Center">
+                                        <Label Text="{Binding User.Name, StringFormat='{}{0:0:1}'}" 
+                                               TextColor="White" 
+                                               FontSize="20" 
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="Center" 
+                                               VerticalOptions="Center"/>
+                                    </Frame>
+
+                                    <VerticalStackLayout Spacing="2" VerticalOptions="Center">
+                                        <Label Text="НИКНЕЙМ" 
+                                               TextColor="#8E8E93" 
+                                               FontSize="10" 
+                                               CharacterSpacing="1.2"/>
+                                        <Label Text="{Binding User.Name}" 
+                                               TextColor="White" 
+                                               FontSize="18" 
+                                               FontAttributes="Bold"
+                                               LineBreakMode="TailTruncation"/>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+
+                                <!-- Блок с кнопками действий -->
+                                <HorizontalStackLayout Spacing="10" HorizontalOptions="FillAndExpand">
+
+                                    <!-- Кнопка Принять -->
+                                    <Button Text="ПРИНЯТЬ" 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BidPageViewModel}}, Path=YesBidCommand}"
+                                            CommandParameter="{Binding .}" 
+                                            Background="#30D158" 
+                                            TextColor="White"
+                                            FontSize="14"
+                                            FontAttributes="Bold"
+                                            CornerRadius="12"
+                                            HeightRequest="48"
+                                            HorizontalOptions="FillAndExpand">
+                                        <!-- Добавляем тень к кнопке через Shadow (работает на современных MAUI) -->
+                                        <Button.Shadow>
+                                            <Shadow Brush="#30D158" 
+                                                    Offset="0,4" 
+                                                    Radius="10" 
+                                                    Opacity="0.4"/>
+                                        </Button.Shadow>
+                                    </Button>
+
+                                    <!-- Кнопка Отклонить -->
+                                    <Button Text="ОТКЛОНИТЬ" 
+                                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:BidPageViewModel}}, Path=NoBidCommand}"
+                                            CommandParameter="{Binding .}" 
+                                            Background="#FF453A" 
+                                            TextColor="White"
+                                            FontSize="14"
+                                            FontAttributes="Bold"
+                                            CornerRadius="12"
+                                            HeightRequest="48"
+                                            HorizontalOptions="FillAndExpand">
+                                        <Button.Shadow>
+                                            <Shadow Brush="#FF453A" 
+                                                    Offset="0,4" 
+                                                    Radius="10" 
+                                                    Opacity="0.4"/>
+                                        </Button.Shadow>
+                                    </Button>
+
+                                </HorizontalStackLayout>
+
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage>
