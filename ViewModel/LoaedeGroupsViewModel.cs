@@ -75,6 +75,15 @@ namespace Group.ViewModel
                 await DialogHelper.ShowAlert("Ошибка", ex.Message);
             }
         }
+        [RelayCommand]
+        private async Task DeleteGroup(NewGroupModel newGroupModel)
+        {
+         var check =  await _groupServies.DeleteGroup(newGroupModel.Key);
+            if (check.Success)
+                await LoadedGroup();
+            else
+                await DialogHelper.ShowAlert($"Ошибка {newGroupModel.Key}", check.Message);
+        }
 
     }
 }

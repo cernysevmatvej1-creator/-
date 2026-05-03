@@ -1,4 +1,4 @@
-﻿using Group.Error_correction_system;
+﻿using Group.ErrorСorrectionSystem;
 using Group.InterfaceRepotisioy;
 using Group.InterfaceServies;
 using Group.Models;
@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using TRAIN;
+
 
 namespace Group.Serves
 {
@@ -19,7 +20,15 @@ namespace Group.Serves
             _groupRepotisiory = ifakeRepotisory;
             _userRepotisory = userRepotisory;
         }
-
+        public async Task<Result> DeleteUser(string groupid,string keyuser)
+        {
+            if (groupid == null)
+                return Result.Fail("О32");
+            if (keyuser == null)
+                return Result.Fail("033");
+          var check  = await   _groupRepotisiory.DeleteUser(groupid, keyuser);
+            return check;
+        }
         public async  Task<Result> AddBid(string groupid,NewGroupModel newGroupModel)
         {
             try
@@ -67,21 +76,30 @@ namespace Group.Serves
         {
             try
             {
-              
                 string check = Validitioin(model);
                 if (check == null)
                 {
-                   await _groupRepotisiory.AddGroup(model,_userRepotisory.GetUserId());
+                    await _groupRepotisiory.AddGroup(model, _userRepotisory.GetUserId());
                     await _groupRepotisiory.PublicAddGroup(model);
+
+                
+                    var userProfil = await _userRepotisory.LoadedUserProfil(_userRepotisory.GetUserId());
+                    if (userProfil.Success && userProfil.Data != null)
+                    {
+                        await _groupRepotisiory.AddMembers(
+                            new Bid { User = userProfil.Data, GetGroupId = model.Id },
+                            model.Id
+                        );
+                    }
+
                     return "Группа создана";
                 }
                 else
                     return check;
-
             }
-            catch (Exception ex) { 
-            return ex.Message;
-            
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
 
@@ -110,6 +128,11 @@ namespace Group.Serves
                 foreach (var group in loadedgroups.Data)
                 {
                     var grup = await  _groupRepotisiory.SearchGroup(group.Id);
+                    if (group.Key != null && grup.Data != null )
+                        grup.Data.Key = group.Key;
+                     
+                    else
+                        return Result<List<NewGroupModel>>.Fail(grup.Message);
                     groups.Add(grup.Data);
                 }
                 if (groups == null)
@@ -138,10 +161,15 @@ namespace Group.Serves
         public async  Task<Result<NewGroupModel>> SearchGroup(string groupid)
         {
           var d =  await _groupRepotisiory.SearchGroup(groupid);
-            await DialogHelper.ShowAlert("asdasd", d.Message);
+            
             return d;
         }
-
+        public async Task<Result<List<User>>> LoadedMembers(string getgroupid)
+        {
+            if(getgroupid == null)
+                return Result<List<User>>.Fail("313");
+            return await _groupRepotisiory.LoadedMembers(getgroupid);
+        }
         private string Validitioin(NewGroupModel model)
         {
             if (model.Id.Length < 5)
@@ -153,5 +181,17 @@ namespace Group.Serves
                 return null ;
             }
         }
+
+        public async  Task<Result> DeleteGroup(string keygroup)
+        {
+            if(keygroup == null)
+                return Result.Fail("Ключ не  дейстителеен");
+            var checkid = _userRepotisory.GetUserId();
+            if (checkid == null)
+                return Result.Fail("023");
+            var check = await _groupRepotisiory.DeleteGroup(keygroup, checkid);
+            return check;
+        }
+   
     }
 }

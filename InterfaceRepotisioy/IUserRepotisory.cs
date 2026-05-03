@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Group.Error_correction_system;
+using Group.ErrorСorrectionSystem;
 using Group.Models;
 namespace Group.InterfaceRepotisioy
 {

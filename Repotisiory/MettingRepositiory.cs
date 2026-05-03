@@ -1,5 +1,5 @@
 ﻿using Firebase.Database.Query;
-using Group.Error_correction_system;
+using Group.ErrorСorrectionSystem;
 using Group.InterfaceRepotisioy;
 using Group.Models;
 using System;
@@ -46,11 +46,9 @@ namespace Group.Repotisiory
                         NameAvtorMetting = metting.Object.NameAvtorMetting,
                         Users = metting.Object.Users,
                         Key = metting.Key,
+                        
                     });
-                    foreach(var user in metting.Object.Users)
-                    {
-                        await DialogHelper.ShowAlert("ads", user.Item1.Name);
-                    }
+                   
 
                 }
 
@@ -66,7 +64,7 @@ namespace Group.Repotisiory
         {
             if (!await base.Authorization())
                 return Result.Fail("Авторизация прошла неуспешно");
-            await firebaseClient.Child("Group").Child(getgroupid).Child("Mettigns").Child(key).PutAsync(metting);
+            
             return Result.Ok();
         }
         

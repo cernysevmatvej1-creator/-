@@ -28,7 +28,7 @@ namespace Group.Repotisiory
             };
 
             HttpClient httpclient = new HttpClient();
-            var response = await httpclient.PostAsJsonAsync("https://localhost:44388/api/AuthFirebase/get-token", reqslet);
+            var response = await httpclient.PostAsJsonAsync("https://groupapi-gaa6.onrender.com/api/AuthFirebase/get-token", reqslet);
             var userData = await response.Content.ReadFromJsonAsync<UserJons>();
 
             if (userData != null)

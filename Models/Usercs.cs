@@ -9,5 +9,6 @@ namespace Group.Models
     {
         public string Name { get; set; }
         public string Id { get; set; }
+        public string Key { get; set; }
     }
 }

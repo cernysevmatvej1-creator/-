@@ -1,19 +1,20 @@
 ﻿
 using CommunityToolkit.Mvvm;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Group;
 using Group.InterfaceRepotisioy;
 using Group.InterfaceServies;
 using Group.Models;
+using Group.Models;
+
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Text;
 using TRAIN;
-using CommunityToolkit.Mvvm.ComponentModel;
-using System.Collections.ObjectModel;
-using Group.Models;
-using System.ComponentModel;
 
 namespace Group.ViewModel
 {
@@ -45,6 +46,7 @@ namespace Group.ViewModel
             var mettings = await _mettingservice.LoadedMetting(GroupId);
             
             await DialogHelper.ShowAlert("Ошибка", mettings.Data.Count.ToString());
+              _metting.Clear(); 
             foreach (var metting in mettings.Data)
             {
                 _metting.Add(metting);
@@ -56,12 +58,16 @@ namespace Group.ViewModel
         [RelayCommand]
         private async Task Poiti(Metting metting)
         {
-          await  _mettingservice.Poiti(metting,true,GroupId);
+          var check =  await  _mettingservice.Poiti(metting,true,GroupId);
+           if(check.Success )
+             await LoadedMetting();
         }
         [RelayCommand]
         private  async Task NoPoiti(Metting metting)
         {
-            await _mettingservice.Poiti(metting, false, GroupId);
+            var check =  await _mettingservice.Poiti(metting, false, GroupId);
+            if (check.Success)
+                await LoadedMetting();
         }
 
     }

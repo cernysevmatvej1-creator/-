@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Group.Error_correction_system;
+using Group.ErrorСorrectionSystem;
 using Group.Models;
 namespace Group.InterfaceServies
 {
@@ -9,6 +9,10 @@ namespace Group.InterfaceServies
     {
       
         Task<Result> SignAnonimal(User user);
-        
+        Task<Result<User>> LoadedProfil();
+        void Remove();
+        Task<Result> SaveProfil(User user);
+
+
     }
 }

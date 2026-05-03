@@ -1,4 +1,4 @@
-﻿using Group.Error_correction_system;
+﻿using Group.ErrorСorrectionSystem;
 using Group.InterfaceRepotisioy;
 using Group.InterfaceServies;
 using Group.Models;
@@ -45,7 +45,17 @@ namespace Group.Serves
                 return Result.Fail("405");
             else if (nameuserid.Data.Name == null || nameuserid.Data.Id == null)
                 return Result.Fail("Профиль нулл");
-            metting.Users.Add((nameuserid.Data,ifgo));
+
+            var existingUser = metting.Users.FirstOrDefault(u => u.User.Id == nameuserid.Data.Id);
+            if (existingUser != null)
+            {
+                existingUser.IfGo = ifgo;
+            }
+            else
+            {
+                metting.Users.Add(new WhoWillGo { User = nameuserid.Data, IfGo = ifgo });
+            }
+
             await _mettingRepositiory.Poiti(getgroupid, metting.Key, metting);
 
             return Result.Ok();

@@ -1,15 +1,28 @@
-﻿<?xml version = "1.0" encoding = "UTF-8" ?>
+﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Group"
+             xmlns:conv="clr-namespace:Group.Converters"
              x:Class="Group.App">
+
     <Application.Resources>
         <ResourceDictionary>
+
+            <!-- Стили проекта -->
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
                 <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- Конвертеры — доступны на всех страницах -->
+            <conv:IntToBoolConverter          x:Key="IntToBoolConverter"/>
+            <conv:InverseIntToBoolConverter   x:Key="InverseIntToBoolConverter"/>
+            <conv:IsNotNullOrEmptyConverter   x:Key="IsNotNullOrEmptyConverter"/>
+            <conv:FirstCharConverter          x:Key="FirstCharConverter"/>
+            <conv:StatusToColorConverter      x:Key="StatusToColorConverter"/>
+            <conv:StatusToTextConverter       x:Key="StatusToTextConverter"/>
+
         </ResourceDictionary>
     </Application.Resources>
-    
+
 </Application>

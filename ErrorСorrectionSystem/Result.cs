@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Group.Error_correction_system
+namespace Group.ErrorСorrectionSystem
 {
     public class Result
     {

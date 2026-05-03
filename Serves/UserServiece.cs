@@ -5,8 +5,8 @@ using Group.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using Group.Error_correction_system;
 using System.Diagnostics;
+using Group.ErrorСorrectionSystem;
 namespace Group.Serves
 {
     public class UserServiece : IUserServies
@@ -17,6 +17,32 @@ namespace Group.Serves
         {
             _userRepotisory = userRepotisory; 
         }
+        public async Task<Result<User>> LoadedProfil()
+        {
+            return await _userRepotisory.LoadedUserProfil(_userRepotisory.GetUserId());
+        }
+        public void Remove()
+        {
+            _userRepotisory.DeleteUserId(); 
+        }
+        public async Task<Result> SaveProfil(User user)
+        {
+            try
+            {
+
+
+                
+
+
+                await _userRepotisory.SaveUserProfil(user, _userRepotisory.GetUserId());
+                return Result.Ok();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+                return Result.Fail($"Возникла техническая ошибка {ex.Message}");
+            }
+        }
         public async  Task<Result> SignAnonimal(User user)
         {
 
@@ -24,15 +50,13 @@ namespace Group.Serves
             {
           
               
-                if (_userRepotisory.GetIsLogin() == false || _userRepotisory.GetIsLogin() == null)
-                {
                     HttpClient httpcliient = new HttpClient();
-                    var respone =  await httpcliient.PostAsync("https://localhost:44388/api/AuthFirebase/auth-anonim", null);
+                    var respone =  await httpcliient.PostAsync("https://groupapi-gaa6.onrender.com/api/AuthFirebase/auth-anonim", null);
                     var userData = await respone.Content.ReadFromJsonAsync<UserJons>();
                     _userRepotisory.SaveUser(userData);
-                    return Result.Fail("Ошибка попробуйте еще раз");
+                    
 
-                }
+                
               
                
                 await _userRepotisory.SaveUserProfil(user, _userRepotisory.GetUserId());
@@ -42,7 +66,6 @@ namespace Group.Serves
             {
                 Debug.WriteLine(ex.Message);
                 return Result.Fail($"Возникла техническая ошибка {ex.Message}" );
-
             }
         }
     }

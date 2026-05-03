@@ -16,6 +16,8 @@ namespace Group.ViewModel
 
         [ObservableProperty]
         private string _nik;
+        [ObservableProperty]
+        private string _id;
         private IUserServies _userServies;
         public MainPageViewModel(IUserServies userServies) 
         {
@@ -27,9 +29,22 @@ namespace Group.ViewModel
             User user = new User()
             {
                 Name = _nik,
+                
             };
-           var result =  await   _userServies.SignAnonimal(user);
-           await DialogHelper.ShowAlert("",result.Message);
+           var result =  await   _userServies.SaveProfil(user);
+            if (result.Success)
+                await DialogHelper.ShowAlert("Успешно", "Данные обновлены");
+        }
+        public async Task LoadedUserProfil()
+        {
+           var check = await _userServies.LoadedProfil();
+            if(check.Data
+                != null)
+            {
+                Nik = check.Data.Name;
+                Id = check.Data.Id;
+            }
+         
         }
     }
 }

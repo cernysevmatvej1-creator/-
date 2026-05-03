@@ -40,7 +40,10 @@ public static class MauiProgram
         builder.Services.AddTransient<LoadedMettingViewModel>();
         builder.Services.AddTransient<MettingPage>();
         builder.Services.AddSingleton<AppShell>();
-
+        builder.Services.AddTransient<LoadedMembersViewModel>();
+        builder.Services.AddTransient<LoadedMeembers>();
+        builder.Services.AddTransient<LoginPage>();
+        builder.Services.AddTransient<LoginViewModel>();
 
         return builder.Build();
     }

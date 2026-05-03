@@ -13,21 +13,7 @@
                 <VerticalStackLayout Spacing="8" Margin="0,0,0,10">
 
                     <!-- Аватар пользователя -->
-                    <Frame CornerRadius="40" 
-                           HeightRequest="80" 
-                           WidthRequest="80" 
-                           Padding="0" 
-                           BackgroundColor="#0A84FF" 
-                           BorderColor="Transparent"
-                           HorizontalOptions="Center"
-                           Margin="0,0,0,10">
-                        <Label Text="{Binding Nik, StringFormat='{}{0:0:1}', FallbackValue='U'}" 
-                               TextColor="White" 
-                               FontSize="36" 
-                               FontAttributes="Bold"
-                               HorizontalOptions="Center" 
-                               VerticalOptions="Center"/>
-                    </Frame>
+                 
 
                     <!-- Приветствие -->
                     <Label Text="ДОБРО ПОЖАЛОВАТЬ" 
@@ -107,16 +93,10 @@
                                    FontSize="11" 
                                    CharacterSpacing="1.2"/>
 
-                            <HorizontalStackLayout Spacing="10">
-                                <Label Text="📱" FontSize="14"/>
-                                <Label Text="Версия приложения: 1.0.0" 
-                                       TextColor="#E5E5EA" 
-                                       FontSize="13"/>
-                            </HorizontalStackLayout>
 
                             <HorizontalStackLayout Spacing="10">
                                 <Label Text="🆔" FontSize="14"/>
-                                <Label Text="{Binding UserId, StringFormat='Ваш ID: {0}', FallbackValue='Ваш ID: 12345'}" 
+                                <Label Text="{Binding Id}" 
                                        TextColor="#E5E5EA" 
                                        FontSize="13"/>
                             </HorizontalStackLayout>

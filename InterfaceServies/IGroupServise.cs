@@ -1,4 +1,4 @@
-﻿using Group.Error_correction_system;
+﻿using Group.ErrorСorrectionSystem;
 using Group.Models;
 using System;
 using System.Collections.Generic;
@@ -15,5 +15,8 @@ namespace Group.InterfaceServies
         Task<Result> AddMembers(Bid bid, string getgroupid);
         Task<Result> RemoveBid(Bid bid, string getgroupid);
         Task<Result<List<Bid>>> LoadedBids(string groupid);
+        Task<Result<List<User>>> LoadedMembers(string getgroupid);
+        Task<Result> DeleteUser(string getgroupid, string keyuser);
+        Task<Result> DeleteGroup(string keygroup);
     }
 }

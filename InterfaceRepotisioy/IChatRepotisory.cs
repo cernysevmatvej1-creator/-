@@ -1,5 +1,5 @@
 ﻿using Firebase.Database.Streaming;
-using Group.Error_correction_system;
+using Group.ErrorСorrectionSystem;
 using Group.Models;
 using System;
 using System.Collections.Generic;

@@ -1,6 +1,6 @@
 ﻿using Firebase.Database.Query;
 using Firebase.Database.Streaming;
-using Group.Error_correction_system;
+using Group.ErrorСorrectionSystem;
 using Group.InterfaceRepotisioy;
 using Group.Models;
 using System;
@@ -50,6 +50,7 @@ namespace Group.Repotisiory
             {
                 var listmessags = await firebaseClient.Child("Group").Child(getgroupid).Child("Message").OnceAsync<Message>();
                 List<Message> messages = new List<Message>();   
+                messages.Clear();   
                 foreach (var message in listmessags) {
                     messages.Add(new Message
                     {
