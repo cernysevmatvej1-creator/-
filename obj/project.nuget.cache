@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "dxHS1z08WjE=",
+  "dgSpecHash": "yswUZSssyt0=",
   "success": true,
   "projectFilePath": "C:\\Project\\Group\\Group\\Group.csproj",
   "expectedPackageFiles": [
@@ -129,6 +129,10 @@
     "C:\\Users\\Матвей\\.nuget\\packages\\xamarin.kotlinx.coroutines.core.jvm\\1.10.2.1\\xamarin.kotlinx.coroutines.core.jvm.1.10.2.1.nupkg.sha512",
     "C:\\Users\\Матвей\\.nuget\\packages\\xamarin.kotlinx.serialization.core\\1.9.0.1\\xamarin.kotlinx.serialization.core.1.9.0.1.nupkg.sha512",
     "C:\\Users\\Матвей\\.nuget\\packages\\xamarin.kotlinx.serialization.core.jvm\\1.9.0.1\\xamarin.kotlinx.serialization.core.jvm.1.9.0.1.nupkg.sha512",
+    "C:\\Users\\Матвей\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.7\\microsoft.netcore.app.runtime.win-x64.10.0.7.nupkg.sha512",
+    "C:\\Users\\Матвей\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.7\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.7.nupkg.sha512",
+    "C:\\Users\\Матвей\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.7\\microsoft.aspnetcore.app.runtime.win-x64.10.0.7.nupkg.sha512",
+    "C:\\Users\\Матвей\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\10.0.7\\microsoft.netcore.app.crossgen2.win-x64.10.0.7.nupkg.sha512",
     "C:\\Users\\Матвей\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.57\\microsoft.windows.sdk.net.ref.10.0.19041.57.nupkg.sha512"
   ],
   "logs": []
