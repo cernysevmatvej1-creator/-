@@ -8,7 +8,7 @@ namespace Group.InterfaceServies
 {
     public  interface IGroupServise
     {
-        Task<string> AddGroup(NewGroupModel model);
+        Task<Result> AddGroup(NewGroupModel model);
         Task<Result<List<NewGroupModel>>> LoadedGroups();
         Task<Result<NewGroupModel>> SearchGroup(string groupid);
         Task<Result> AddBid(string groupid,NewGroupModel newGroupModel);

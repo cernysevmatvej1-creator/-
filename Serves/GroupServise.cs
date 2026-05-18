@@ -26,6 +26,12 @@ namespace Group.Serves
                 return Result.Fail("О32");
             if (keyuser == null)
                 return Result.Fail("033");
+            var checkuser=  _userRepotisory.GetUserId();
+            var checkuserkeyadminid = await SearchGroup(groupid);
+            if(checkuserkeyadminid.Data.KeyAdminId == checkuser)
+            {
+                return Result.Fail("Нельзя удалить самого себя");
+            }
           var check  = await   _groupRepotisiory.DeleteUser(groupid, keyuser);
             return check;
         }
@@ -37,7 +43,8 @@ namespace Group.Serves
                 bool check = false;
                 foreach (var group in profilgroup.Data)
                 {
-                    if (group.Id == groupid)
+
+                        if (group.Id == groupid)
                     {
                         check = true;
                         break;
@@ -72,13 +79,14 @@ namespace Group.Serves
    
         }
 
-        public async Task<string> AddGroup(NewGroupModel model)
+        public async Task<Result> AddGroup(NewGroupModel model)
         {
             try
             {
                 string check = Validitioin(model);
                 if (check == null)
                 {
+                    model.KeyAdminId = _userRepotisory.GetUserId(); 
                     await _groupRepotisiory.AddGroup(model, _userRepotisory.GetUserId());
                     await _groupRepotisiory.PublicAddGroup(model);
 
@@ -92,14 +100,14 @@ namespace Group.Serves
                         );
                     }
 
-                    return "Группа создана";
+                    return Result.Ok("Группа создана");
                 }
                 else
-                    return check;
+                    return Result.Fail($"Не прошла проверку валидации {check}");
             }
             catch (Exception ex)
             {
-                return ex.Message;
+                return Result.Fail(ex.Message);
             }
         }
 
@@ -131,8 +139,7 @@ namespace Group.Serves
                     if (group.Key != null && grup.Data != null )
                         grup.Data.Key = group.Key;
                      
-                    else
-                        return Result<List<NewGroupModel>>.Fail(grup.Message);
+        
                     groups.Add(grup.Data);
                 }
                 if (groups == null)

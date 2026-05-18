@@ -36,7 +36,7 @@ namespace Group.ViewModel
             _chatservise.Subscribe(Messages, GroupId);
         }
 
-      
+
         public void StopListening()
         {
             _chatservise.Unsubscribe();
@@ -45,15 +45,17 @@ namespace Group.ViewModel
         public async Task LoadedMesages()
         {
             var lismessages = await _chatservise.LoadedMessage(GroupId);
+            Messages.Clear();
             if (lismessages?.Data != null)
             {
-                Messages.Clear();
+              
                 foreach (var message in lismessages.Data)
                 {
                     Messages.Add(message);
                 }
             }
         }
+
 
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
@@ -68,21 +70,13 @@ namespace Group.ViewModel
         {
             if (string.IsNullOrWhiteSpace(Messags))
                 return;
-
+            var messagesave = Messags;
+            Messags = string.Empty;
             var messageText = Messags;
-            var result = await _chatservise.AddMessage(messageText, GroupId);
-                 Messags = string.Empty; 
-            if (result.Success == true)
-            {
-           
-
-              
-               
-            }
-            else
-            {
+            var result = await _chatservise.AddMessage(messagesave, GroupId);
+          if(!result.Success)
                 await DialogHelper.ShowAlert("Ошибка", result.Message ?? "Не удалось отправить сообщение");
-            }
+            
         }
 
         [RelayCommand]
@@ -95,51 +89,5 @@ namespace Group.ViewModel
             }
         }
 
-        [RelayCommand]
-        private async Task DeleteMessage(Message message)
-        {
-            if (message == null) return;
-
-            var result = await Application.Current.MainPage.DisplayAlert(
-                "Удаление",
-                "Вы уверены, что хотите удалить это сообщение?",
-                "Да",
-                "Нет");
-
-            if (result)
-            {
-                // Здесь добавьте вызов вашего сервиса для удаления
-                // var deleteResult = await _chatservise.DeleteMessage(message, GroupId);
-                // if (deleteResult?.Da == true)
-                // {
-                //     Messages.Remove(message);
-                // }
-
-                Messages.Remove(message);
-                await DialogHelper.ShowAlert("Успех", "Сообщение удалено");
-            }
-        }
-
-        [RelayCommand]
-        private async Task ReplyMessage(Message message)
-        {
-            if (message != null)
-            {
-                
-                Messags = $"Ответ на: {message.Messag}\n";
-                
-                await Task.CompletedTask;
-            }
-        }
-
-        [RelayCommand]
-        private async Task ForwardMessage(Message message)
-        {
-            if (message != null)
-            {
-           
-                await DialogHelper.ShowAlert("Пересылка", $"Переслать: {message.Messag}");
-            }
-        }
     }
 }

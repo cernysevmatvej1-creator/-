@@ -14,11 +14,43 @@ public class JavaProxyThrowable
 		mono.android.Runtime.register ("Android.Runtime.JavaProxyThrowable, Mono.Android", JavaProxyThrowable.class, __md_methods);
 	}
 
+	public JavaProxyThrowable ()
+	{
+		super ();
+		if (getClass () == JavaProxyThrowable.class) {
+			mono.android.TypeManager.Activate ("Android.Runtime.JavaProxyThrowable, Mono.Android", "", this, new java.lang.Object[] {  });
+		}
+	}
+
+	public JavaProxyThrowable (java.lang.String p0, java.lang.Throwable p1, boolean p2, boolean p3)
+	{
+		super (p0, p1, p2, p3);
+		if (getClass () == JavaProxyThrowable.class) {
+			mono.android.TypeManager.Activate ("Android.Runtime.JavaProxyThrowable, Mono.Android", "System.String, System.Private.CoreLib:Java.Lang.Throwable, Mono.Android:System.Boolean, System.Private.CoreLib:System.Boolean, System.Private.CoreLib", this, new java.lang.Object[] { p0, p1, p2, p3 });
+		}
+	}
+
+	public JavaProxyThrowable (java.lang.String p0, java.lang.Throwable p1)
+	{
+		super (p0, p1);
+		if (getClass () == JavaProxyThrowable.class) {
+			mono.android.TypeManager.Activate ("Android.Runtime.JavaProxyThrowable, Mono.Android", "System.String, System.Private.CoreLib:Java.Lang.Throwable, Mono.Android", this, new java.lang.Object[] { p0, p1 });
+		}
+	}
+
 	public JavaProxyThrowable (java.lang.String p0)
 	{
 		super (p0);
 		if (getClass () == JavaProxyThrowable.class) {
 			mono.android.TypeManager.Activate ("Android.Runtime.JavaProxyThrowable, Mono.Android", "System.String, System.Private.CoreLib", this, new java.lang.Object[] { p0 });
+		}
+	}
+
+	public JavaProxyThrowable (java.lang.Throwable p0)
+	{
+		super (p0);
+		if (getClass () == JavaProxyThrowable.class) {
+			mono.android.TypeManager.Activate ("Android.Runtime.JavaProxyThrowable, Mono.Android", "Java.Lang.Throwable, Mono.Android", this, new java.lang.Object[] { p0 });
 		}
 	}
 

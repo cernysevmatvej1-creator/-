@@ -49,12 +49,12 @@
                                Padding="15,5"
                                BorderColor="#3A3A3C"
                                HasShadow="False">
-                            <Entry Placeholder="Например: 12345"
+                            <Entry Placeholder="Например: "
                                    PlaceholderColor="#636366"
                                    Text="{Binding GroupId}"
                                    TextColor="White"
                                    FontSize="16"
-                                   Keyboard="Numeric"
+                                
                                    BackgroundColor="Transparent"/>
                         </Frame>
                     </VerticalStackLayout>

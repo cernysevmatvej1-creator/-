@@ -10,7 +10,8 @@ namespace Group.Models
         public string NikAvtor { get; set; }
         public string Description { get; set; }
         public string Key { get; set; }
-  
+        public string KeyAdminId { get; set; }
        
     }
 }
+ 

@@ -6,6 +6,7 @@ using Group;
 using Group.InterfaceRepotisioy;
 using Group.InterfaceServies;
 using Group.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -30,10 +31,18 @@ namespace Group.ViewModel
         public async Task LoadedMembers()
         {
             var listusers = await _groupservice.LoadedMembers(GroupId);
-            foreach (var user in listusers.Data)
-            {
-                _members.Add(user);
+        if(listusers.Success ) {
+                foreach (var user in listusers.Data)
+                {
+
+                    _members.Add(user);
+                }
             }
+            else 
+            {
+                await DialogHelper.ShowAlert("Ошибка", listusers.Message);
+            }
+
         }
         public void ApplyQueryAttributes(IDictionary<string, object> query)
         {
@@ -45,7 +54,12 @@ namespace Group.ViewModel
         [RelayCommand]
         private async Task DeleteMember(User user)
         {
+          
            var check =  await  _groupservice.DeleteUser(GroupId, user.Id);
+            if (!check.Success)
+            {
+                await DialogHelper.ShowAlert("Ошибка", check.Message);
+            }
         }
     }
 }

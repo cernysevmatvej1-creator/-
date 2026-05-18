@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Group.LoginPage"
              Title="Вход"
-             BackgroundColor="#0D0D0D">
+             BackgroundColor="#0D0D0D"
+             Shell.NavBarIsVisible="False">
 
     <ScrollView>
         <VerticalStackLayout Spacing="20" Padding="24" VerticalOptions="Center">
@@ -11,7 +12,6 @@
             <!-- Логотип и заголовок -->
             <VerticalStackLayout Spacing="8" Margin="0,0,0,20">
 
-                <!-- Аватар-заглушка -->
                 <Frame CornerRadius="40" 
                        HeightRequest="80" 
                        WidthRequest="80" 
@@ -79,34 +79,71 @@
                         </Frame>
                     </VerticalStackLayout>
 
-                    <!-- Политика конфиденциальности -->
+                    <!-- Чекбокс с тремя ссылками на документы -->
                     <Frame BackgroundColor="#2C2C2E" 
                            CornerRadius="12" 
                            Padding="14"
                            HasShadow="False">
 
-                        <HorizontalStackLayout Spacing="10">
-                            <CheckBox IsChecked="{Binding Ischekedbutton}" 
-                                      Color="#0A84FF">
-                                <CheckBox.Shadow>
-                                    <Shadow Brush="#0A84FF" 
-                                            Offset="0,0" 
-                                            Radius="6" 
-                                            Opacity="0.3"/>
-                                </CheckBox.Shadow>
-                            </CheckBox>
+                        <VerticalStackLayout Spacing="12">
 
-                            <VerticalStackLayout Spacing="4" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
-                                <Label Text="ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ" 
-                                       TextColor="#8E8E93" 
-                                       FontSize="11" 
-                                       CharacterSpacing="1"/>
-                                <Label Text="Я принимаю условия использования и политику конфиденциальности" 
+                            <!-- Чекбокс + основной текст -->
+                            <HorizontalStackLayout Spacing="10">
+                                <CheckBox IsChecked="{Binding Ischekedbutton}" 
+                                          Color="#0A84FF"/>
+
+                                <Label Text="Я принимаю условия:" 
                                        TextColor="#E5E5EA" 
+                                       FontSize="13"
+                                       VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+
+                            <!-- Три ссылки на документы -->
+                            <HorizontalStackLayout Spacing="8" 
+                                                   HorizontalOptions="Center"
+                                                   Margin="0,0,0,0">
+
+                                <Label Text="Политика конфиденциальности"
+                                       TextColor="#0A84FF"
                                        FontSize="12"
-                                       LineBreakMode="WordWrap"/>
-                            </VerticalStackLayout>
-                        </HorizontalStackLayout>
+                                       FontAttributes="Bold"
+                                       TextDecorations="Underline">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding OpenPrivacyPolicyCommand}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <Label Text="•"
+                                       TextColor="#636366"
+                                       FontSize="12"/>
+
+                                <Label Text="Пользовательское соглашение"
+                                       TextColor="#0A84FF"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       TextDecorations="Underline">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding OpenUserAgreementCommand}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                                <Label Text="•"
+                                       TextColor="#636366"
+                                       FontSize="12"/>
+
+                                <Label Text="Политика обработки ПД"
+                                       TextColor="#0A84FF"
+                                       FontSize="12"
+                                       FontAttributes="Bold"
+                                       TextDecorations="Underline">
+                                    <Label.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding OpenDataProcessingCommand}"/>
+                                    </Label.GestureRecognizers>
+                                </Label>
+
+                            </HorizontalStackLayout>
+
+                        </VerticalStackLayout>
 
                     </Frame>
 
@@ -121,21 +158,11 @@
                             CornerRadius="14"
                             HeightRequest="55"
                             Margin="0,5,0,0"
-                            IsEnabled="{Binding Ischekedbutton}">
-                        <Button.Shadow>
-                            <Shadow Brush="#30D158" 
-                                    Offset="0,4" 
-                                    Radius="12" 
-                                    Opacity="0.4"/>
-                        </Button.Shadow>
-                    </Button>
+                            IsEnabled="{Binding Ischekedbutton}"/>
 
                 </VerticalStackLayout>
 
             </Frame>
-
-            <!-- Индикатор загрузки -->
-         
 
             <!-- Дополнительная информация -->
             <Label Text="Нажимая кнопку Войти, вы соглашаетесь с условиями" 

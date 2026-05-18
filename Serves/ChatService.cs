@@ -28,6 +28,10 @@ namespace Group.Serves
             if (message == null || message.Trim() == null )
                 return Result.Fail("Сообщение нулевое");
             var username = await _userRepotisory.LoadedUserProfil(_userRepotisory.GetUserId());
+            if (username.Data == null)
+            {
+                return Result.Fail("Ошибка загрузки юсера");
+            }
             if (username.Data.Name == null)
                 return Result.Fail("Имя нулевое");
             Message message1 = new Message()
@@ -49,14 +53,26 @@ namespace Group.Serves
 
         public void Subscribe(ObservableCollection<Message> Messages, string getgroupid)
         {
+            var existingMessageTexts = new HashSet<string>(
+                Messages.Select(m => $"{m.Name}_{m.Messag}_{m.Time}")
+            );
+
             _subscription = _chatRepotisory.GetMessagesObservable(getgroupid)
                 .Subscribe(delta =>
                 {
-                    if (delta.Object != null)
+                    if (delta?.Object != null)
                     {
                         MainThread.BeginInvokeOnMainThread(() =>
                         {
-                            Messages.Add(delta.Object);
+                            // Проверяем, не существует ли уже такое сообщение
+                            var key = $"{delta.Object.Name}_{delta.Object.Messag}_{delta.Object.Time}";
+                            if (!existingMessageTexts.Contains(key) &&
+                                !Messages.Any(m => m.Messag == delta.Object.Messag &&
+                                                  m.Name == delta.Object.Name))
+                            {
+                                Messages.Add(delta.Object);
+                                existingMessageTexts.Add(key);
+                            }
                         });
                     }
                 });

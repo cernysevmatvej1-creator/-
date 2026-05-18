@@ -65,11 +65,6 @@ C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\appiconWide
 C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\appiconWideTile.scale-150.png
 C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\appiconWideTile.scale-200.png
 C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\appiconWideTile.scale-400.png
-C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\dotnet_bot.scale-100.png
-C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\dotnet_bot.scale-125.png
-C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\dotnet_bot.scale-150.png
-C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\dotnet_bot.scale-200.png
-C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\dotnet_bot.scale-400.png
 C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\CoreMessagingXP.dll
 C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\dcompi.dll
 C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\dwmcorei.dll
@@ -489,11 +484,6 @@ C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconWideTile.scale-150.png
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconWideTile.scale-200.png
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\appiconWideTile.scale-400.png
-C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\dotnet_bot.scale-100.png
-C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\dotnet_bot.scale-125.png
-C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\dotnet_bot.scale-150.png
-C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\dotnet_bot.scale-200.png
-C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\dotnet_bot.scale-400.png
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\mauiimage.stamp
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\mauiimage.outputs
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\Group.AssemblyInfoInputs.cache
@@ -522,3 +512,11 @@ C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\qualifiers.txt.intermediate
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\MultipleQualifiersPerDimensionFound.txt
 C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\Group.sourcelink.json
+C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\family_group.scale-100.png
+C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\family_group.scale-100.png
+C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\home_dp.scale-100.png
+C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\home_dp.scale-100.png
+C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\add_dp.scale-100.png
+C:\Project\Group\Group\bin\Debug\net10.0-windows10.0.19041.0\win-x64\search_dp.scale-100.png
+C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\add_dp.scale-100.png
+C:\Project\Group\Group\obj\Debug\net10.0-windows10.0.19041.0\win-x64\resizetizer\r\search_dp.scale-100.png

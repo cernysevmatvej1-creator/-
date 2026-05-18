@@ -36,48 +36,7 @@
                 <DataTemplate x:DataType="local:Message">
 
                     <SwipeView>
-                        <!-- Правая сторона (смахивание влево) - Действия -->
-                        <SwipeView.RightItems>
-                            <SwipeItems Mode="Reveal">
-
-                                <!-- Кнопка ответа -->
-                                <SwipeItem Text="↩️"
-                                           BackgroundColor="#0A84FF"
-                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ChatGroupViewModel}}, Path=ReplyMessageCommand}"
-                                           CommandParameter="{Binding .}">
-
-                                </SwipeItem>
-
-                                <!-- Кнопка копирования -->
-                                <SwipeItem Text="📋"
-                                           BackgroundColor="#5E5CE6"
-                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ChatGroupViewModel}}, Path=CopyMessageCommand}"
-                                           CommandParameter="{Binding .}"/>
-
-                                <!-- Кнопка удаления -->
-                                <SwipeItem Text="🗑️"
-                                           BackgroundColor="#FF453A"
-                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ChatGroupViewModel}}, Path=DeleteMessageCommand}"
-                                           CommandParameter="{Binding .}">
-                                   
-                                </SwipeItem>
-
-                            </SwipeItems>
-                        </SwipeView.RightItems>
-
-                        <!-- Левая сторона (смахивание вправо) - Пересылка -->
-                        <SwipeView.LeftItems>
-                            <SwipeItems Mode="Reveal">
-
-                                <SwipeItem Text="➡️"
-                                           BackgroundColor="#30D158"
-                                           Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:ChatGroupViewModel}}, Path=ForwardMessageCommand}"
-                                           CommandParameter="{Binding .}">
-                                 
-                                </SwipeItem>
-
-                            </SwipeItems>
-                        </SwipeView.LeftItems>
+                       
 
                         <!-- Содержимое сообщения -->
                         <Grid Padding="0" Margin="0,6,0,6">

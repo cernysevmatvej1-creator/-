@@ -37,9 +37,12 @@ namespace Group.ViewModel
                Mesto = _mesto,
                Time = _time
            });
-            if(check != null) 
-                if(!check.Success)
-                    await DialogHelper.ShowAlert("Ошибка",check.Message);
+            if (check != null)
+                if (!check.Success)
+                    await DialogHelper.ShowAlert("Ошибка", check.Message);
+                else
+                    await DialogHelper.ShowAlert("Встреча создана", check.Message);
+            
         }
          
     }

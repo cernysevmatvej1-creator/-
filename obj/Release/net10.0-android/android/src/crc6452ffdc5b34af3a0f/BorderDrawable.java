@@ -15,6 +15,14 @@ public class BorderDrawable
 		}
 	}
 
+	public BorderDrawable (int p0)
+	{
+		super (p0);
+		if (getClass () == BorderDrawable.class) {
+			mono.android.TypeManager.Activate ("Microsoft.Maui.Platform.BorderDrawable, Microsoft.Maui", "Android.Graphics.Color, Mono.Android", this, new java.lang.Object[] { p0 });
+		}
+	}
+
 	public BorderDrawable (android.content.Context p0)
 	{
 		super ();

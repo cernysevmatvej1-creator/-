@@ -93,15 +93,7 @@
                                     </HorizontalStackLayout>
 
                                     <!-- Роль участника (если есть) -->
-                                    <HorizontalStackLayout Spacing="6" 
-                                                           IsVisible="{Binding Role, Converter={StaticResource IsNotNullOrEmptyConverter}}">
-                                      
-                                        <Label Text="{Binding Role, FallbackValue='Участник'}" 
-                                               TextColor="#FF9F0A" 
-                                               FontSize="12"
-                                               FontAttributes="Bold"/>
-                                    </HorizontalStackLayout>
-
+                                   
                                 </VerticalStackLayout>
 
                                 <!-- Кнопка удаления -->

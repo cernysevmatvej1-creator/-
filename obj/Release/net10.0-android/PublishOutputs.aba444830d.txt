@@ -1,3 +1,4 @@
+C:\Project\Group\Group\bin\Release\net10.0-android\publish\com.companyname.group-Signed.aab
+C:\Project\Group\Group\bin\Release\net10.0-android\publish\com.companyname.group.aab
 C:\Project\Group\Group\bin\Release\net10.0-android\publish\com.companyname.group-Signed.apk
-C:\Project\Group\Group\bin\Release\net10.0-android\publish\com.companyname.group.apk
 C:\Project\Group\Group\bin\Release\net10.0-android\publish\_Microsoft.Android.Resource.Designer.dll

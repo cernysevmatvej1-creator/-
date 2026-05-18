@@ -44,16 +44,17 @@ namespace Group.ViewModel
         public async Task LoadedMetting()
         {
             var mettings = await _mettingservice.LoadedMetting(GroupId);
-            
-            await DialogHelper.ShowAlert("Ошибка", mettings.Data.Count.ToString());
-              _metting.Clear(); 
-            foreach (var metting in mettings.Data)
+
+            if (mettings.Success)
             {
-                _metting.Add(metting);
-                await DialogHelper.ShowAlert("Ошибка", metting.Mesto);
+                _metting.Clear();
+                foreach (var metting in mettings.Data)
+                {
+                    _metting.Add(metting);
+
+                }
+
             }
-
-
         }
         [RelayCommand]
         private async Task Poiti(Metting metting)
@@ -61,6 +62,8 @@ namespace Group.ViewModel
           var check =  await  _mettingservice.Poiti(metting,true,GroupId);
            if(check.Success )
              await LoadedMetting();
+
+        
         }
         [RelayCommand]
         private  async Task NoPoiti(Metting metting)
@@ -68,6 +71,7 @@ namespace Group.ViewModel
             var check =  await _mettingservice.Poiti(metting, false, GroupId);
             if (check.Success)
                 await LoadedMetting();
+    
         }
 
     }

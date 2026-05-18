@@ -1,8 +1,7 @@
-﻿obj\Release\net10.0-android\resizetizer\r\drawable-hdpi\dotnet_bot.png
-obj\Release\net10.0-android\resizetizer\r\drawable-mdpi\dotnet_bot.png
-obj\Release\net10.0-android\resizetizer\r\drawable-xhdpi\dotnet_bot.png
-obj\Release\net10.0-android\resizetizer\r\drawable-xxhdpi\dotnet_bot.png
-obj\Release\net10.0-android\resizetizer\r\drawable-xxxhdpi\dotnet_bot.png
+﻿obj\Release\net10.0-android\resizetizer\r\drawable\add_dp.png
+obj\Release\net10.0-android\resizetizer\r\drawable\family_group.png
+obj\Release\net10.0-android\resizetizer\r\drawable\home_dp.png
+obj\Release\net10.0-android\resizetizer\r\drawable\search_dp.png
 obj\Release\net10.0-android\resizetizer\r\mipmap-anydpi-v26\appicon.xml
 obj\Release\net10.0-android\resizetizer\r\mipmap-anydpi-v26\appicon_round.xml
 obj\Release\net10.0-android\resizetizer\r\mipmap-hdpi\appicon.png

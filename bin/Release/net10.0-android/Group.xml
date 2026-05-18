@@ -31,9 +31,6 @@
             <inheritdoc/>
             <inheritdoc/>
             <inheritdoc/>
-            <inheritdoc/>
-            <inheritdoc/>
-            <inheritdoc/>
         </member>
         <member name="P:Group.ViewModel.ChatGroupViewModel.Messages">
             <inheritdoc cref="F:Group.ViewModel.ChatGroupViewModel._messages"/>
@@ -55,24 +52,6 @@
         </member>
         <member name="P:Group.ViewModel.ChatGroupViewModel.CopyMessageCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Group.ViewModel.ChatGroupViewModel.CopyMessage(Group.Models.Message)"/>.</summary>
-        </member>
-        <member name="F:Group.ViewModel.ChatGroupViewModel.deleteMessageCommand">
-            <summary>The backing field for <see cref="P:Group.ViewModel.ChatGroupViewModel.DeleteMessageCommand"/>.</summary>
-        </member>
-        <member name="P:Group.ViewModel.ChatGroupViewModel.DeleteMessageCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Group.ViewModel.ChatGroupViewModel.DeleteMessage(Group.Models.Message)"/>.</summary>
-        </member>
-        <member name="F:Group.ViewModel.ChatGroupViewModel.replyMessageCommand">
-            <summary>The backing field for <see cref="P:Group.ViewModel.ChatGroupViewModel.ReplyMessageCommand"/>.</summary>
-        </member>
-        <member name="P:Group.ViewModel.ChatGroupViewModel.ReplyMessageCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Group.ViewModel.ChatGroupViewModel.ReplyMessage(Group.Models.Message)"/>.</summary>
-        </member>
-        <member name="F:Group.ViewModel.ChatGroupViewModel.forwardMessageCommand">
-            <summary>The backing field for <see cref="P:Group.ViewModel.ChatGroupViewModel.ForwardMessageCommand"/>.</summary>
-        </member>
-        <member name="P:Group.ViewModel.ChatGroupViewModel.ForwardMessageCommand">
-            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:Group.ViewModel.ChatGroupViewModel.ForwardMessage(Group.Models.Message)"/>.</summary>
         </member>
         <member name="T:Group.ViewModel.LoadedMembersViewModel">
             <inheritdoc/>
@@ -136,6 +115,9 @@
         <member name="T:Group.ViewModel.LoginViewModel">
             <inheritdoc/>
             <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
         </member>
         <member name="P:Group.ViewModel.LoginViewModel.Nik">
             <inheritdoc cref="F:Group.ViewModel.LoginViewModel._nik"/>
@@ -148,6 +130,24 @@
         </member>
         <member name="P:Group.ViewModel.LoginViewModel.SignAnonimalCommand">
             <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Group.ViewModel.LoginViewModel.SignAnonimal"/>.</summary>
+        </member>
+        <member name="F:Group.ViewModel.LoginViewModel.openPrivacyPolicyCommand">
+            <summary>The backing field for <see cref="P:Group.ViewModel.LoginViewModel.OpenPrivacyPolicyCommand"/>.</summary>
+        </member>
+        <member name="P:Group.ViewModel.LoginViewModel.OpenPrivacyPolicyCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Group.ViewModel.LoginViewModel.OpenPrivacyPolicy"/>.</summary>
+        </member>
+        <member name="F:Group.ViewModel.LoginViewModel.openUserAgreementCommand">
+            <summary>The backing field for <see cref="P:Group.ViewModel.LoginViewModel.OpenUserAgreementCommand"/>.</summary>
+        </member>
+        <member name="P:Group.ViewModel.LoginViewModel.OpenUserAgreementCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Group.ViewModel.LoginViewModel.OpenUserAgreement"/>.</summary>
+        </member>
+        <member name="F:Group.ViewModel.LoginViewModel.openDataProcessingCommand">
+            <summary>The backing field for <see cref="P:Group.ViewModel.LoginViewModel.OpenDataProcessingCommand"/>.</summary>
+        </member>
+        <member name="P:Group.ViewModel.LoginViewModel.OpenDataProcessingCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:Group.ViewModel.LoginViewModel.OpenDataProcessing"/>.</summary>
         </member>
         <member name="T:Group.ViewModel.MainPageViewModel">
             <inheritdoc/>

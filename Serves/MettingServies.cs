@@ -37,13 +37,12 @@ namespace Group.Serves
             return await _mettingRepositiory.AddMetting(getgroupid , metting);
 
         }
-        public async Task<Result> Poiti(Metting metting,bool ifgo,string getgroupid)
+        public async Task<Result> Poiti(Metting metting, bool ifgo, string getgroupid)
         {
-
             var nameuserid = await _useRepotisory.LoadedUserProfil(_useRepotisory.GetUserId());
-            if (nameuserid == null)
+            if (!nameuserid.Success || nameuserid.Data == null)
                 return Result.Fail("405");
-            else if (nameuserid.Data.Name == null || nameuserid.Data.Id == null)
+            if (nameuserid.Data.Name == null || nameuserid.Data.Id == null)
                 return Result.Fail("Профиль нулл");
 
             var existingUser = metting.Users.FirstOrDefault(u => u.User.Id == nameuserid.Data.Id);
@@ -56,7 +55,11 @@ namespace Group.Serves
                 metting.Users.Add(new WhoWillGo { User = nameuserid.Data, IfGo = ifgo });
             }
 
-            await _mettingRepositiory.Poiti(getgroupid, metting.Key, metting);
+            // ВОТ ТУТ БЫЛО ПРОСТО await без проверки результата
+            var result = await _mettingRepositiory.Poiti(getgroupid, metting.Key, metting);
+
+            if (!result.Success)
+                return result; // пробрасываем ошибку из репозитория
 
             return Result.Ok();
         }

@@ -1,5 +1,5 @@
-<api type="release" assembly-name="Microsoft.Maui.Essentials" mvid="becdf1e8ce394db2b15b4f929738ec5f">
-  <module assembly-name="Microsoft.Maui.Essentials" mvid="becdf1e8ce394db2b15b4f929738ec5f" mvid-bytes="6PHNvjnOsk2xW0+SlzjsXw==">
+<api type="release" assembly-name="Microsoft.Maui.Essentials" mvid="ca6fb9d264e04974b9fbee307e8423b8">
+  <module assembly-name="Microsoft.Maui.Essentials" mvid="ca6fb9d264e04974b9fbee307e8423b8" mvid-bytes="0rlvyuBkdEm5++4wfoQjuA==">
     <types-scratch>
       <entry key="crc6468b6408a11370c2f/WebAuthenticatorIntermediateActivity" java-name="crc6468b6408a11370c2f/WebAuthenticatorIntermediateActivity" managed-type-name="Microsoft.Maui.Authentication.WebAuthenticatorIntermediateActivity" token="33554443" />
       <entry key="microsoft/maui/essentials/fileProvider" java-name="microsoft/maui/essentials/fileProvider" managed-type-name="Microsoft.Maui.Storage.FileProvider" token="33554460" />

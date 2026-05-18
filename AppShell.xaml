@@ -7,31 +7,32 @@
     Title="Group"
     x:Name="shell">
 
-    
     <TabBar>
-        
+
         <ShellContent
             Title="Главная"
-            Icon="home.png"
+            Icon="home_dp.png"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage" />
 
-
         <ShellContent
             Title="Создать"
-            Icon="add.png"
+            Icon="add_dp.png"
             ContentTemplate="{DataTemplate local:NewGroup}"
             Route="NewGroup" />
+
         <ShellContent
-        Title="Группы"
-        Icon="add.png"
-        ContentTemplate="{DataTemplate local:LoadedGroup}"
-        Route="LoadedGroup" />
+            Title="Мои группы"
+            Icon="family_group.png"
+            ContentTemplate="{DataTemplate local:LoadedGroup}"
+            Route="LoadedGroup" />
+
         <ShellContent
-   Title="Search"
-   Icon="add.png"
-   ContentTemplate="{DataTemplate local:SearhPage}"
-   Route="SearhPage" />
+            Title="Найти"
+            Icon="search_dp.png"
+            ContentTemplate="{DataTemplate local:SearhPage}"
+            Route="SearhPage" />
+
     </TabBar>
 
 </Shell>

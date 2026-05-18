@@ -33,11 +33,15 @@ namespace Group.ViewModel
                 Id  = Guid.NewGuid().ToString(),    
                 NikAvtor = _nik,
                 Description = _description, 
+                
             };
-         
+          
            var check = await _groupServise.AddGroup(model);
-           await DialogHelper.ShowAlert("",check);
-
+            if (!check.Success)
+            {
+                await DialogHelper.ShowAlert("Ошибка", check.Message);
+            }
+            await DialogHelper.ShowAlert("Успех", "Группа добавлена");
         }
     }
 }

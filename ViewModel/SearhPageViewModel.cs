@@ -37,8 +37,16 @@ namespace Group.ViewModel
             var searchgroupmodel = await _groupServise.SearchGroup(_groupId);
             _groups.Clear();
             _groups.Add(searchgroupmodel.Data);
-            await _groupServise.AddBid(searchgroupmodel.Data.Id, searchgroupmodel.Data);
-            await DialogHelper.ShowAlert("asdasd",searchgroupmodel.Message);
+            if (searchgroupmodel.Data != null)
+            {
+                var chec = await _groupServise.AddBid(searchgroupmodel.Data.Id, searchgroupmodel.Data);
+                if (!chec.Success)
+                {
+                    await DialogHelper.ShowAlert("Ошибка", chec.Message);
+                }
+            }
+          
+         
         }
     }
 }

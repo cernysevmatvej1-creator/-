@@ -128,13 +128,6 @@
                                LineBreakMode="WordWrap"/>
                     </HorizontalStackLayout>
 
-                    <HorizontalStackLayout Spacing="10">
-                        <Label Text="✓" TextColor="#30D158" FontSize="14" VerticalTextAlignment="Start"/>
-                        <Label Text="Вы сможете изменить описание в любое время" 
-                               TextColor="#98989E" 
-                               FontSize="13"
-                               LineBreakMode="WordWrap"/>
-                    </HorizontalStackLayout>
 
                     <HorizontalStackLayout Spacing="10">
                         <Label Text="✓" TextColor="#30D158" FontSize="14" VerticalTextAlignment="Start"/>

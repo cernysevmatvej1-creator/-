@@ -36,7 +36,7 @@ namespace Group.ViewModel
             foreach (var bid in listbids.Data) { 
             Bids.Add(bid);
             }
-            await DialogHelper.ShowAlert("", listbids.Data.Count.ToString());
+         
           
            
         }

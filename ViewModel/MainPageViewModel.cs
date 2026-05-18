@@ -44,6 +44,7 @@ namespace Group.ViewModel
                 Nik = check.Data.Name;
                 Id = check.Data.Id;
             }
+      
          
         }
     }

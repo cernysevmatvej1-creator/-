@@ -21,6 +21,7 @@
             <conv:FirstCharConverter          x:Key="FirstCharConverter"/>
             <conv:StatusToColorConverter      x:Key="StatusToColorConverter"/>
             <conv:StatusToTextConverter       x:Key="StatusToTextConverter"/>
+            <conv:InverseBoolConverter        x:Key="InverseBoolConverter"/>
 
         </ResourceDictionary>
     </Application.Resources>
