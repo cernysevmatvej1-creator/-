@@ -1,8 +1,0 @@
-<api type="release" assembly-name="Group" mvid="fe8a8064600c41cb9ff1244fe71485a4">
-  <module assembly-name="Group" mvid="fe8a8064600c41cb9ff1244fe71485a4" mvid-bytes="ZICK/gxgy0Gf8SRP5xSFpA==">
-    <types-scratch>
-      <entry key="crc641d5c0bf5307b2d8f/MainActivity" java-name="crc641d5c0bf5307b2d8f/MainActivity" managed-type-name="Group.MainActivity" token="33554455" />
-      <entry key="crc641d5c0bf5307b2d8f/MainApplication" java-name="crc641d5c0bf5307b2d8f/MainApplication" managed-type-name="Group.MainApplication" token="33554456" />
-    </types-scratch>
-  </module>
-</api>
