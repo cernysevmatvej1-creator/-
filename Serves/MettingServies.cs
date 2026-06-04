@@ -34,6 +34,7 @@ namespace Group.Serves
             else if (nameuserid.Data.Name == null || nameuserid.Data.Id == null)
                 return Result.Fail("Профиль нулл");
             metting.NameAvtorMetting = nameuserid.Data.Name;    
+            
             return await _mettingRepositiory.AddMetting(getgroupid , metting);
 
         }

@@ -31,7 +31,7 @@
 ![Главный экран](screenshots/main.png)
 
 ### Поиск
-![Поиск](screenshots/search.png)
+![Поиск](screenshots/search.jpg)
 
 ### Новая заявка
 ![Новая заявка](screenshots/new-bid.png)

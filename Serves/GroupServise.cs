@@ -28,7 +28,7 @@ namespace Group.Serves
                 return Result.Fail("033");
             var checkuser=  _userRepotisory.GetUserId();
             var checkuserkeyadminid = await SearchGroup(groupid);
-            if(checkuserkeyadminid.Data.KeyAdminId == checkuser)
+            if(checkuserkeyadminid.Data.KeyAdminId == keyuser)
             {
                 return Result.Fail("Нельзя удалить самого себя");
             }
@@ -167,9 +167,8 @@ namespace Group.Serves
 
         public async  Task<Result<NewGroupModel>> SearchGroup(string groupid)
         {
-          var d =  await _groupRepotisiory.SearchGroup(groupid);
-            
-            return d;
+             var сheck  =  await _groupRepotisiory.SearchGroup(groupid.Trim());
+            return сheck;
         }
         public async Task<Result<List<User>>> LoadedMembers(string getgroupid)
         {

@@ -37,7 +37,8 @@ namespace Group.Serves
             Message message1 = new Message()
             {
                 Messag = message.Trim(),
-                Name = username.Data.Name
+                Name = username.Data.Name,
+                Id = username.Data.Id
             };
          return  await _chatRepotisory.AddMessage(message1,getgroupid);
         }
